@@ -1,0 +1,30 @@
+{
+    "name": "msouza/msmvc",
+    "description": "Estrutura MVC customizada para meus projetos.",
+    "keywords": ["framework", "mvc"],
+    "license": "MIT",
+    "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Matheus Souza",
+            "email": "matheusviegasdesouza@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "phpmailer/phpmailer": "~6.0",
+        "illuminate/database": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@composer update"
+        ]
+    }
+}
