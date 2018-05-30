@@ -15,5 +15,5 @@ $ composer create-project msouza/msmvc
 
 ## Requisitos
 
-* PHP >= 7.0.0
+* PHP >= 5.5.0
 * MySQL
