@@ -36,7 +36,7 @@ class Core {
 		} else {
 			global $config;
 
-			$currentController = $config['default_controller'] . 'Controller';
+			$currentController = ucfirst($config['default_controller']) . 'Controller';
 			$currentAction = 'index';
 		}
 

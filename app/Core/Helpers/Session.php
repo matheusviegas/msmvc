@@ -17,9 +17,7 @@ class Session{
 	}
 
 	public static function put($key, $value){
-		if(!array_key_exists($key, $_SESSION)){
-			$_SESSION[$key] = $value;
-		}
+		$_SESSION[$key] = $value;
 	}
 
 	public static function putAll($array = array()){

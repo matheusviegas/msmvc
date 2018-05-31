@@ -7,7 +7,7 @@ $routes = array();
 
 $config = array();
 if(ENVIRONMENT == 'development') {
-	define("BASE_URL", "http://localhost/mvc/");
+	define("BASE_URL", "http://localhost/msmvc/");
 	$config['driver'] = 'mysql';
 	$config['dbname'] = 'msmvc';
 	$config['host'] = 'localhost';
@@ -30,6 +30,15 @@ if(ENVIRONMENT == 'development') {
 
 $config['default_lang'] = 'pt-br';
 $config['default_controller'] = 'home';
+$config['default_template'] = 'main_template';
+
+// Titulos
+$config['title_prefix'] = 'MS | ';
+$config['title_sufix'] = '';
+
+// Redirecionamento
+$config['redirect_after_login'] = 'home';
+$config['redirect_after_logout'] = 'login';
 
 
 // Configurações de Email

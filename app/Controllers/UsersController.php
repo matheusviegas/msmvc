@@ -10,7 +10,7 @@ use App\Models\Usuario;
 use App\Core\Auth;
 use App\Core\Helpers\Session;
 
-class HomeController extends Controller {
+class UsersController extends Controller {
 
 	private $user;
 
@@ -18,13 +18,31 @@ class HomeController extends Controller {
         parent::__construct();
 
         if(Auth::getUsuario() == null){
-          $this->redirect('login', ['flash' => ['error' => 'Área restrita a usuários logados.']]);
+          $this->redirect('login', ['mensagem' => 'Área restrita a usuários logados.']);
         }
-
     }
 
     public function index() {
-        $this->loadTemplate('home', ['usuario' => Auth::getUsuario()], ['titulo' => 'Inicio']);
+
+      $configTemplate = [
+        'titulo' => 'Usuários', 
+        'titulo_panel' => 'Listagem de Usuários',
+        'txt_btn' => 'Cadastrar Usuário',
+        'action_btn' => 'users/add'
+      ];
+
+        $this->loadTemplate('Users/users_list', ['usuarios' => Usuario::all()], $configTemplate);
+    }
+
+    public function teste(){
+
+      $flashes = [
+        'success' => 'Mensagem de sucesso!',
+        'error' => 'Mensagem de erro',
+        'info' => 'Mensagem de informação'
+      ];
+
+      $this->redirect('home', ['flash' => $flashes]);
     }
 
     public function upload(){
@@ -51,22 +69,11 @@ class HomeController extends Controller {
       }  
     }
 
-    public function elo(){
-        echo "<pre>";
-
-        $uuu = Auth::authenticate('matheusviegasdesouza@gmail.com', 'admin');
-       
-        var_dump(Auth::getUsuario()->nome);
-
-
-        Session::close();
-        exit;
-       
-
-        $usuarios = Usuario::all();
-
-        foreach ($usuarios as $u) {
-          echo $u->nome . "<br />";
+    public function delete($id){
+        if(Usuario::destroy($id)){
+          $this->redirect('users', ['status' => 'success', 'mensagem' => 'Deletado com sucesso.']);
+        }else {
+          $this->redirect('users', ['status' => 'danger', 'mensagem' => 'Erro ao excluir.']);
         }
     }
 

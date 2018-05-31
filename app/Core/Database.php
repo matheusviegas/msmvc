@@ -3,6 +3,9 @@
 namespace App\Core;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Container\Container;
+use PDO;
 
 class Database {
 
@@ -23,6 +26,13 @@ class Database {
 		]);
 
 		$capsule->bootEloquent();
+	}
+
+	public static function getPDO(){
+		global $config;
+		$db = new PDO("mysql:dbname=".$config['dbname'].";host=".$config['host'], $config['dbuser'], $config['dbpass']);
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		return $db;
 	}
 
 }
