@@ -60,7 +60,9 @@ footer {
 
 
 
-
+.row {
+      margin-bottom: 20px;
+}
 
 /********************
  * LAYOUT
