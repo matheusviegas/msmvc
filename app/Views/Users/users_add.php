@@ -28,7 +28,7 @@
 					<select class="form-control" name="grupo">
 						<option>Selecionar Grupo</option>
 						<?php foreach($grupos as $grupo): ?>
-							<option value="<?=$grupo->id;?>" <?=(!empty($usuario) && $usuario->grupoid == $grupo->id ? 'selected' : '');?>><?=$grupo->nome;?></option>
+							<option value="<?=$grupo->id;?>" <?=(!empty($usuario) && $usuario->grupo->id == $grupo->id ? 'selected' : '');?>><?=$grupo->nome;?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>

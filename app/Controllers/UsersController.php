@@ -30,7 +30,8 @@ class UsersController extends Controller {
         'titulo' => 'Usuários', 
         'titulo_panel' => 'Listagem de Usuários',
         'txt_btn' => 'Cadastrar Usuário',
-        'action_btn' => 'users/add'
+        'action_btn' => 'users/add',
+        'active_menu_item' => 'users'
       ];
 
         $this->loadTemplate('Users/users_list', ['usuarios' => Usuario::all()], $configTemplate);
@@ -39,7 +40,8 @@ class UsersController extends Controller {
     public function add(){
       $configTemplate = [
         'titulo' => 'Usuários', 
-        'titulo_panel' => 'Cadastrar Usuário'
+        'titulo_panel' => 'Cadastrar Usuário',
+        'active_menu_item' => 'users'
       ];
 
         $this->loadTemplate('Users/users_add', ['grupos' => Grupo::all()], $configTemplate);
@@ -48,10 +50,21 @@ class UsersController extends Controller {
     public function edit($id){
       $configTemplate = [
         'titulo' => 'Usuários', 
-        'titulo_panel' => 'Editar Usuário'
+        'titulo_panel' => 'Editar Usuário',
+        'active_menu_item' => 'users'
       ];
 
         $this->loadTemplate('Users/users_add', ['grupos' => Grupo::all(), 'usuario' => Usuario::find(intval($id))], $configTemplate);
+    }
+
+    public function view($id){
+      $configTemplate = [
+        'titulo' => 'Usuários', 
+        'titulo_panel' => 'Detalhes do Usuário',
+        'active_menu_item' => 'users'
+      ];
+
+      $this->loadTemplate('Users/users_view', ['usuario' => Usuario::find(intval($id))], $configTemplate);
     }
 
     public function save(){

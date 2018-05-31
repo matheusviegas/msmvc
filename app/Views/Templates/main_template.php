@@ -66,7 +66,7 @@
 								$usuarioLogado = \App\Core\Auth::getUsuario();
 							?>
 
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?=($usuarioLogado->foto != null ? $usuarioLogado->foto : 'assets/img/user.png');?>" class="img-circle" alt="Avatar"> <span><?=$usuarioLogado->nome;?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?=($usuarioLogado->foto != null ? $usuarioLogado->foto : BASE_URL . 'assets/img/user.png');?>" class="img-circle" alt="Avatar"> <span><?=$usuarioLogado->nome;?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?=$this->base('profile'); ?>"><i class="lnr lnr-user"></i> <span>Perfil</span></a></li>
 								<li><a href="<?=$this->base('settings'); ?>"><i class="lnr lnr-cog"></i> <span>Configurações</span></a></li>
@@ -84,12 +84,14 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="<?=$this->base('home'); ?>" class="active"><i class="lnr lnr-home"></i> <span>Painel</span></a></li>
-						<li><a href="<?=$this->base('users'); ?>" class=""><i class="lnr lnr-user"></i> <span>Usuários</span></a></li>
-						<li><a href="<?=$this->base('groups'); ?>" class=""><i class="lnr lnr-users"></i> <span>Grupos</span></a></li>
-						<li><a href="<?=$this->base('permissions'); ?>" class=""><i class="lnr lnr-lock"></i> <span>Permissões</span></a></li>
-						<li><a href="<?=$this->base('settings'); ?>" class=""><i class="lnr lnr-cog"></i> <span>Configurações</span></a></li>
-						<li>
+
+						<?php foreach(\App\Core\Helpers\Config::get('menu_items') as $key => $val): ?>
+						<li><a href="<?=$this->base($val['link']); ?>" class="<?=!empty($active_menu_item) && $active_menu_item == $key ? 'active' : '';?>"><i class="lnr lnr-<?=$val['icon'];?>"></i> <span><?=$val['title'];?></span></a></li>
+						<?php  endforeach;?>
+
+
+						
+						<!--<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Menu</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
@@ -98,8 +100,7 @@
 									<li><a href="page-lockscreen.html" class="">Item 3</a></li>
 								</ul>
 							</div>
-						</li>
-						<li><a href="<?=$this->base('logout'); ?>" class=""><i class="lnr lnr-exit"></i> <span>Sair</span></a></li>
+						</li>-->
 					</ul>
 				</nav>
 			</div>

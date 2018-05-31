@@ -24,7 +24,7 @@ class HomeController extends Controller {
     }
 
     public function index() {
-        $this->loadTemplate('home', ['usuario' => Auth::getUsuario()], ['titulo' => 'Inicio']);
+        $this->loadTemplate('home', ['usuario' => Auth::getUsuario()], ['titulo' => 'Inicio', 'active_menu_item' => 'home']);
     }
 
     public function upload(){

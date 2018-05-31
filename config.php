@@ -32,6 +32,43 @@ $config['default_lang'] = 'pt-br';
 $config['default_controller'] = 'home';
 $config['default_template'] = 'main_template';
 
+// MENUS DO TEMPLATE
+
+$config['menu_items'] = [
+	'home' => [
+		'link' => 'home',
+		'icon' => 'home',
+		'title' => 'Painel'
+	],
+	'users' => [
+		'link' => 'users',
+		'icon' => 'user',
+		'title' => 'Usuários'
+	],
+	'groups' => [
+		'link' => 'groups',
+		'icon' => 'users',
+		'title' => 'Grupos'
+	],
+	'permissions' => [
+		'link' => 'permissions',
+		'icon' => 'lock',
+		'title' => 'Permissões'
+	],
+	'settings' => [
+		'link' => 'settings',
+		'icon' => 'cog',
+		'title' => 'Configurações'
+	],
+	'exit' => [
+		'link' => 'logout',
+		'icon' => 'exit',
+		'title' => 'Sair'
+	]
+];
+
+
+
 // Titulos
 $config['title_prefix'] = 'MS | ';
 $config['title_sufix'] = '';
