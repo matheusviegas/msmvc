@@ -60,7 +60,7 @@ footer {
 
 
 
-.row {
+[class^="col-md-"] {
       margin-bottom: 20px;
 }
 
