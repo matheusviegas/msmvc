@@ -9,7 +9,7 @@ $config = array();
 if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/msmvc/");
 	$config['driver'] = 'mysql';
-	$config['dbname'] = 'msmvc';
+	$config['dbname'] = 'msmvc2';
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
@@ -35,6 +35,7 @@ if(ENVIRONMENT == 'development') {
 }
 
 $config['default_lang'] = 'pt-br';
+$config['default_timezone'] = 'America/Sao_Paulo';
 $config['default_controller'] = 'home';
 $config['default_template'] = 'main_template';
 

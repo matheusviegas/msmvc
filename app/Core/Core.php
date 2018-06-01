@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Core;
+use App\Core\Helpers\Config;
 
 class Core {
+
+	public function __construct(){
+		date_default_timezone_set(Config::get('default_timezone'));
+	}
 
 	public function run() {
 
@@ -34,9 +39,7 @@ class Core {
 			}
 
 		} else {
-			global $config;
-
-			$currentController = ucfirst($config['default_controller']) . 'Controller';
+			$currentController = ucfirst(Config::get('default_controller')) . 'Controller';
 			$currentAction = 'index';
 		}
 
