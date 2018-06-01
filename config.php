@@ -77,6 +77,8 @@ $config['title_sufix'] = '';
 $config['redirect_after_login'] = 'home';
 $config['redirect_after_logout'] = 'login';
 
+// CONTROLE DE REQUISIÇÕES
+$config['accepted_methods'] = ['POST', 'GET', 'PUT', 'DELETE'];
 
 // Configurações de Email
 $config['mail_debug'] = 3;

@@ -25,7 +25,7 @@ class UsersController extends Controller {
     }
 
     public function index() {
-
+      $this->requirePermission('users_list', 'home', 'Voce não tem permissão para ver a lista de usuarios.');
       $configTemplate = [
         'titulo' => 'Usuários', 
         'titulo_panel' => 'Listagem de Usuários',
@@ -38,6 +38,7 @@ class UsersController extends Controller {
     }
 
     public function add(){
+      $this->requirePermission('users_add', 'users', 'Voce não tem permissão para criar usuarios.');
       $configTemplate = [
         'titulo' => 'Usuários', 
         'titulo_panel' => 'Cadastrar Usuário',
@@ -48,6 +49,7 @@ class UsersController extends Controller {
     }
 
     public function edit($id){
+      $this->requirePermission('users_edit', 'users', 'Voce não tem permissão para alterar usuarios.');
       $configTemplate = [
         'titulo' => 'Usuários', 
         'titulo_panel' => 'Editar Usuário',
@@ -58,6 +60,7 @@ class UsersController extends Controller {
     }
 
     public function view($id){
+      $this->requirePermission('users_view', 'users', 'Voce não tem permissão para visualizar os detalhes dos usuarios.');
       $configTemplate = [
         'titulo' => 'Usuários', 
         'titulo_panel' => 'Detalhes do Usuário',
@@ -68,6 +71,7 @@ class UsersController extends Controller {
     }
 
     public function save(){
+      $this->requirePermission('users_save', 'users', 'Voce não tem permissão para criar ou alterar usuarios.');
       $dados = Input::post();
 
       $usuario = !empty($dados['id']) ? Usuario::find(intval($dados['id'])) : new Usuario();
@@ -122,6 +126,7 @@ class UsersController extends Controller {
     }
 
     public function delete($id){
+        $this->requirePermission('users_delete', 'users', 'Voce não tem permissão para remover usuarios.');
         if(Usuario::destroy($id)){
           $this->redirect('users', ['status' => 'success', 'mensagem' => 'Deletado com sucesso.']);
         }else {

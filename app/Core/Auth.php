@@ -36,14 +36,14 @@ class Auth {
 			Session::put('foto_usuario', $usuario->foto);
 			Session::put('tipo_usuario', $usuario->nome_grupo);
 			Session::put('idtipo_usuario', $usuario->grupo_id);
-			Session::put('permissoes', explode(',', $usuario->permissoes));
+			Session::put('permissoes_usuario', explode(',', $usuario->permissoes));
 		}
 
       	return $usuario;
 	}
 
 	public static function hasPermission($permission){
-		return Session::has('id_usuario') && in_array($permissao, Session::get('permissoes_usuario'));
+		return Session::has('id_usuario') && in_array($permission, Session::get('permissoes_usuario'));
 	}
 
 	public static function logout(){

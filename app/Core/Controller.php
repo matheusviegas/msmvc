@@ -53,4 +53,20 @@ class Controller {
 		}
 	}
 
+	public function accept($method, $permission = null, $redirect = null, $mensagem = null){
+		if(in_array($method, Config::get('accepted_methods')) && $_SERVER['REQUEST_METHOD'] != $method){
+			$this->redirect('erro', ['flash' => ['error' => 'Esta rota só aceita requisições do tipo ' . $method . '.']]);
+			exit;
+		} 
+
+		$this->requirePermission($permission, $redirect, $mensagem);
+	}
+
+	public function requirePermission($permission, $redirect = 'erro', $mensagem = 'Você não tem permissão para acessar este recurso.'){
+		if($permission != null && !Auth::hasPermission($permission)){
+			$this->redirect($redirect, ['flash' => ['error' => $mensagem]]);
+			exit;
+		}
+	}
+
 }
