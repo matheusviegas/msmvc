@@ -33,14 +33,14 @@
 								<div class="logo text-center"><img src="<?=BASE_URL;?>assets/img/logo-dark.png" alt="Klorofil Logo"></div>
 								<p class="lead">Autentique-se</p>
 							</div>
-							<form class="form-auth-small" method="POST" action="<?=$this->base('login/autenticar', TRUE);?>" autocomplete="off">
+							<form class="form-auth-small" method="POST" action="<?=$this->base('login/authenticate', TRUE);?>" autocomplete="off">
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>
 									<input type="email" class="form-control" id="signin-email" value="" name="email" placeholder="Email" required />
 								</div>
 								<div class="form-group">
 									<label for="signin-password" class="control-label sr-only">Senha</label>
-									<input type="password" class="form-control" id="signin-password" value="" name="senha" placeholder="Senha" required />
+									<input type="password" class="form-control" id="signin-password" value="" name="password" placeholder="Senha" required />
 								</div>
 
 								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGAR</button>

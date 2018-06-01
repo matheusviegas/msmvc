@@ -52,7 +52,7 @@ class Core {
 			}
 		}
 
-		(new \App\Controllers\ErroController())->index();
+		(new \App\Controllers\ErrorController())->index();
 	}
 
 	public function checkRoutes($url) {

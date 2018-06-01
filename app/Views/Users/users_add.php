@@ -1,34 +1,34 @@
 <div class="row">
 	<div class="col-md-6">
 		<form method="POST" action="<?=$this->base('users/save');?>">
-			<?php if(!empty($usuario)) : ?>
-				<input type="hidden" name="id" value="<?=$usuario->id;?>" />
+			<?php if(!empty($user)) : ?>
+				<input type="hidden" name="id" value="<?=$user->id;?>" />
 			<?php endif; ?>
 
 			<div class="row">
 				<div class="col-md-4">
-					<input type="text" class="form-control" placeholder="Nome" name="nome" required value="<?=(!empty($usuario) ? $usuario->nome : '');?>" />
+					<input type="text" class="form-control" placeholder="Nome" name="name" required value="<?=(!empty($user) ? $user->name : '');?>" />
 				</div>
 				<div class="col-md-8">
-					<input type="text" class="form-control" placeholder="Sobrenome" name="sobrenome" required value="<?=(!empty($usuario) ? $usuario->sobrenome : '');?>" />
+					<input type="text" class="form-control" placeholder="Sobrenome" name="lastname" required value="<?=(!empty($user) ? $user->lastname : '');?>" />
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-12">
-					<input type="email" class="form-control" placeholder="Email" name="email" required value="<?=(!empty($usuario) ? $usuario->email : '');?>" />
+					<input type="email" class="form-control" placeholder="Email" name="email" required value="<?=(!empty($user) ? $user->email : '');?>" />
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="Nome de Usuário" name="usuario" required value="<?=(!empty($usuario) ? $usuario->usuario : '');?>" />
+					<input type="text" class="form-control" placeholder="Nome de Usuário" name="username" required value="<?=(!empty($user) ? $user->username : '');?>" />
 				</div>
 				<div class="col-md-6">
-					<select class="form-control" name="grupo">
+					<select class="form-control" name="group">
 						<option>Selecionar Grupo</option>
-						<?php foreach($grupos as $grupo): ?>
-							<option value="<?=$grupo->id;?>" <?=(!empty($usuario) && $usuario->grupo->id == $grupo->id ? 'selected' : '');?>><?=$grupo->nome;?></option>
+						<?php foreach($groups as $group): ?>
+							<option value="<?=$group->id;?>" <?=(!empty($user) && $user->group->id == $group->id ? 'selected' : '');?>><?=$group->name;?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>
@@ -36,10 +36,10 @@
 
 			<div class="row">
 				<div class="col-md-6">
-					<input type="password" class="form-control" placeholder="Senha" name="senha" />
+					<input type="password" class="form-control" placeholder="Senha" name="password" />
 				</div>
 				<div class="col-md-6">
-					<input type="password" class="form-control" placeholder="Repita a Senha" name="confirmacao_senha" />
+					<input type="password" class="form-control" placeholder="Repita a Senha" name="password_confirmation" />
 				</div>
 			</div>
 
@@ -47,7 +47,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<label class="btn btn-default" style="width: 100%;">
-					    <i class="fa fa-camera" style="margin-right: 5px;"></i> Selecionar Foto <input type="file" style="display: none;">
+					    <i class="fa fa-camera" style="margin-right: 5px;"></i> Selecionar Foto <input type="file" name="picture" style="display: none;">
 					</label>
 				</div>
 			</div>

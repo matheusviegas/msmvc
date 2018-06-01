@@ -10,7 +10,7 @@ require 'routes.php';
 
 Session::open();
 
-(new Database())->iniciar();
+(new Database())->init();
 (new Core())->run();
 
 ?>

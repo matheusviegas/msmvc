@@ -12,12 +12,12 @@ class Input {
    		return $key == null ? $_POST : $_POST[$key];
    }
 
-   public static function validate($dados, $filtros){
-   		$array = explode("|", $filtros);
+   public static function validate($data, $filters){
+   		$array = explode("|", $filters);
 
-   		foreach($dados as $dado){
-   			foreach($array as $filtro){
-   				if($filtro === 'required' && empty($dado)){
+   		foreach($data as $dat){
+   			foreach($array as $filter){
+   				if($filter === 'required' && empty($dat)){
    					return false;
    				}
    			}

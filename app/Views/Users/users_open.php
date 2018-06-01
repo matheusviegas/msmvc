@@ -4,23 +4,23 @@
 			<tbody>
 				<tr>
 					<th>Nome</th>
-					<td><?=$usuario->nome;?></td>
+					<td><?=$user->name;?></td>
 				</tr>
 				<tr>
 					<th>Sobrenome</th>
-					<td><?=$usuario->sobrenome;?></td>
+					<td><?=$user->lastname;?></td>
 				</tr>
 				<tr>
 					<th>Email</th>
-					<td><?=$usuario->email;?></td>
+					<td><?=$user->email;?></td>
 				</tr>
 				<tr>
-					<th>Usuário</th>
-					<td><?=$usuario->usuario;?></td>
+					<th>Nome de Usuário</th>
+					<td><?=$user->username;?></td>
 				</tr>
 				<tr>
 					<th>Grupo</th>
-					<td><?=$usuario->grupo->nome; ?></td>						
+					<td><?=$user->group->name; ?></td>						
 				</tr>
 			</tbody>
 		</table>

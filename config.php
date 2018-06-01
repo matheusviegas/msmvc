@@ -13,6 +13,9 @@ if(ENVIRONMENT == 'development') {
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
+	$config['charset'] = 'utf8';
+	$config['collation'] = 'utf8_unicode_ci';
+	$config['table_prefix'] = '';
 
 
 	ini_set('display_errors', 1);
@@ -26,6 +29,9 @@ if(ENVIRONMENT == 'development') {
 	$config['host'] = '';
 	$config['dbuser'] = '';
 	$config['dbpass'] = '';
+	$config['charset'] = 'utf8';
+	$config['collation'] = 'utf8_unicode_ci';
+	$config['table_prefix'] = '';
 }
 
 $config['default_lang'] = 'pt-br';
@@ -50,10 +56,10 @@ $config['menu_items'] = [
 		'icon' => 'users',
 		'title' => 'Grupos'
 	],
-	'permissions' => [
-		'link' => 'permissions',
+	'roles' => [
+		'link' => 'roles',
 		'icon' => 'lock',
-		'title' => 'Permissões'
+		'title' => 'Roles'
 	],
 	'settings' => [
 		'link' => 'settings',

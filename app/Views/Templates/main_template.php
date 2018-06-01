@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-	<title><?=(\App\Core\Helpers\Config::get('title_prefix') . (!empty($titulo) ? $titulo : '') . \App\Core\Helpers\Config::get('title_sufix'));?></title>
+	<title><?=(\App\Core\Helpers\Config::get('title_prefix') . (!empty($title) ? $title : '') . \App\Core\Helpers\Config::get('title_sufix'));?></title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -63,10 +63,10 @@
 						<li class="dropdown">
 
 							<?php
-								$usuarioLogado = \App\Core\Auth::getUsuario();
+								$loggedUser = \App\Core\Auth::user();
 							?>
 
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?=($usuarioLogado->foto != null ? $usuarioLogado->foto : BASE_URL . 'assets/img/user.png');?>" class="img-circle" alt="Avatar"> <span><?=$usuarioLogado->nome;?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?=($loggedUser->picture != null ? $loggedUser->picture : BASE_URL . 'assets/img/user.png');?>" class="img-circle" alt="Avatar"> <span><?=$loggedUser->name;?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?=$this->base('profile'); ?>"><i class="lnr lnr-user"></i> <span>Perfil</span></a></li>
 								<li><a href="<?=$this->base('settings'); ?>"><i class="lnr lnr-cog"></i> <span>Configurações</span></a></li>
@@ -112,9 +112,9 @@
 			<div class="main-content">
 				<div class="container-fluid">
 					<div class="panel">
-						<?php if(!empty($titulo_panel)) : ?>
+						<?php if(!empty($panel_title)) : ?>
 							<div class="panel-heading" style="margin-bottom: 10px;">
-								<h3 class="panel-title"><?=$titulo_panel;?></h3>
+								<h3 class="panel-title"><?=$panel_title;?></h3>
 
 								<?php if(!empty($action_btn) && !empty($txt_btn)) : ?>
 									<span class="pull-right">
@@ -137,7 +137,7 @@
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
-				<p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
+				<p class="copyright">&copy; 2018 <a href="#" target="_blank">MS MVC</a>. All Rights Reserved.</p>
 			</div>
 		</footer>
 	</div>
