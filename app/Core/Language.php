@@ -11,7 +11,7 @@ class Language {
 		global $config;
 		$this->l = $config['default_lang'];
 
-		if(!empty($_SESSION['lang']) && file_exists('lang/'.$_SESSION['lang'].'.ini')) {
+		if(!empty($_SESSION['lang']) && file_exists('App/Lang/'.$_SESSION['lang'].'.ini')) {
 			$this->l = $_SESSION['lang'];
 		}
 

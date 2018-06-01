@@ -55,14 +55,17 @@ class Controller {
 
 	public function accept($method, $permission = null, $redirect = null, $mensagem = null){
 		if(in_array($method, Config::get('accepted_methods')) && $_SERVER['REQUEST_METHOD'] != $method){
-			$this->redirect('erro', ['flash' => ['error' => 'Esta rota só aceita requisições do tipo ' . $method . '.']]);
+			$this->redirect(Config::get('redirect_if_invalid_request_method'), ['flash' => ['error' => $this->lang->get('ROUTE_METHOD_UNACCEPTED', TRUE) . ' ' . $method . '.']]);
 			exit;
 		} 
 
 		$this->requirePermission($permission, $redirect, $mensagem);
 	}
 
-	public function requirePermission($permission, $redirect = 'erro', $mensagem = 'Você não tem permissão para acessar este recurso.'){
+	public function requirePermission($permission, $redirect = null, $mensagem = null){
+		$redirect = $redirect == null ? Config::get('redirect_if_insuficient_permission') : $redirect;
+		$mensagem = ($mensagem == null ? $this->lang->get('INSUFICIENT_PERMISSION', TRUE) : $mensagem);
+
 		if($permission != null && !Auth::hasPermission($permission)){
 			$this->redirect($redirect, ['flash' => ['error' => $mensagem]]);
 			exit;

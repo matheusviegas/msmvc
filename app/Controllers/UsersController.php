@@ -25,7 +25,7 @@ class UsersController extends Controller {
     }
 
     public function index() {
-      $this->requirePermission('users_list', 'home', 'Voce não tem permissão para ver a lista de usuarios.');
+      $this->requirePermission('users_list');
       $configTemplate = [
         'titulo' => 'Usuários', 
         'titulo_panel' => 'Listagem de Usuários',

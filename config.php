@@ -76,6 +76,8 @@ $config['title_sufix'] = '';
 // Redirecionamento
 $config['redirect_after_login'] = 'home';
 $config['redirect_after_logout'] = 'login';
+$config['redirect_if_insuficient_permission'] = 'erro';
+$config['redirect_if_invalid_request_method'] = 'erro';
 
 // CONTROLE DE REQUISIÇÕES
 $config['accepted_methods'] = ['POST', 'GET', 'PUT', 'DELETE'];
