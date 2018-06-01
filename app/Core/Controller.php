@@ -53,13 +53,16 @@ class Controller {
 		}
 	}
 
-	public function accept($method, $role = null, $redirect = null, $message = null){
+	public function acceptWithPermission($method, $role, $redirect = null, $message = null){
+		$this->accept($method);
+		$this->requirePermission($role, $redirect, $message);
+	}
+
+	public function accept($method){
 		if(in_array($method, Config::get('accepted_methods')) && $_SERVER['REQUEST_METHOD'] != $method){
 			$this->redirect(Config::get('redirect_if_invalid_request_method'), ['flash' => ['error' => $this->lang->get('ROUTE_METHOD_UNACCEPTED', TRUE) . ' ' . $method . '.']]);
 			exit;
 		} 
-
-		$this->requirePermission($role, $redirect, $message);
 	}
 
 	public function requirePermission($role, $redirect = null, $message = null){
