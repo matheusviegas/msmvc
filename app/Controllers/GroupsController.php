@@ -89,7 +89,9 @@ class GroupsController extends Controller {
 
     public function delete($id){
         $this->requirePermission('groups_delete', 'home', 'Voce não tem permissão para remover grupos.');
-        if(Group::destroy($id)){
+        $group = Group::find($id);
+        $group->roles()->detach();
+        if($group->delete()){
           $this->redirect('groups', ['flash' => ['success' => 'Deletado com sucesso.']]);
         }else {
           $this->redirect('groups', ['flash' => ['danger' => 'Erro ao excluir.']]);
