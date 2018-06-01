@@ -15,6 +15,13 @@
 
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="<?=BASE_URL;?>assets/css/main.css">
+
+
+	<?php foreach($this->getCSS() as $css): ?>
+		<link href="<?= $css; ?>" rel="stylesheet" type="text/css" />
+	<?php endforeach ?>
+
+
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
@@ -168,6 +175,10 @@
 			<?php endforeach; endif;?>
 		});
 	</script>
+
+	<?php foreach($this->getJS() as $js): ?>
+		<script src="<?= $js; ?>" type="text/javascript"></script>
+	<?php endforeach ?>
 </body>
 
 </html>

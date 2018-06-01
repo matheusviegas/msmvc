@@ -27,6 +27,9 @@ class HomeController extends Controller {
 
     	//->where('products.id', $productId)->exists()
 
+        $this->addJS(['datatables', 'toastr', 'sweetalert']);
+        $this->addCSS(['teste1', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2']);
+        $this->addJS('https://jquery.com/jquery-wp-content/themes/jquery/js/main.js', true);
         $this->template('home', ['usuario' => Auth::user()], ['titulo' => 'Inicio', 'active_menu_item' => 'home']);
     }
 

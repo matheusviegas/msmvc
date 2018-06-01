@@ -10,10 +10,14 @@ use App\Core\Auth;
 class Controller {
 
 	protected $lang;
+	protected $additionalJS;
+	protected $additionalCSS;
 
 	public function __construct($role = null) {
 		global $config;
 		$this->lang = new Language();
+		$this->additionalJS = [];
+		$this->additionalCSS = [];
 
 		if($role != null && $role != 'public'){
 			if(!Auth::hasPermission($role)){
@@ -73,6 +77,45 @@ class Controller {
 			$this->redirect($redirect, ['flash' => ['error' => $message]]);
 			exit;
 		}
+	}
+
+	public function addJS($name, $external = false){
+		$this->addAdditionalAssetItem($this->additionalJS, $name, 'JS', $external);
+	}
+
+	public function addCSS($name, $external = false){
+		$this->addAdditionalAssetItem($this->additionalCSS, $name, 'CSS', $external);
+	}
+
+	private function addAdditionalAssetItem(&$array, $item, $type, $external){
+		if(is_array($item)){
+			foreach($item as $file){
+				$this->addItemInArray($array, $file, $type, $external);
+			}
+		} else {
+			$this->addItemInArray($array, $item, $type, $external);
+		}
+	}
+
+	private function addItemInArray(&$array, $item, $type, $external){
+		if(!$external){
+			$item = $this->mountAssetURL($item, $type);
+		}
+		$array[] = $item;
+	}
+
+	private function mountAssetURL($file, $type){
+		if(in_array($type, ['JS', 'CSS'])){
+			return BASE_URL . 'assets/' . strtolower($type) . '/' . $file . '.' . strtolower($type);
+		}
+	}
+
+	public function getJS(){
+		return $this->additionalJS;
+	}
+
+	public function getCSS(){
+		return $this->additionalCSS;
 	}
 
 }
