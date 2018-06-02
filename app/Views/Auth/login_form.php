@@ -31,21 +31,22 @@
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center"><img src="<?=BASE_URL;?>assets/img/logo-dark.png" alt="Klorofil Logo"></div>
-								<p class="lead">Autentique-se</p>
+								<p class="lead"><?=$this->lang->get('title_login_form'); ?></p>
 							</div>
 							<form class="form-auth-small" method="POST" action="<?=$this->base('login/authenticate', TRUE);?>" autocomplete="off">
+								<?php $this->csrf_field('login_form'); ?>
 								<div class="form-group">
-									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input type="email" class="form-control" id="signin-email" value="" name="email" placeholder="Email" required />
+									<label for="signin-email" class="control-label sr-only"><?=$this->lang->get('label_email'); ?></label>
+									<input type="email" class="form-control" id="signin-email" value="" name="email" placeholder="<?=$this->lang->get('label_email'); ?>" required />
 								</div>
 								<div class="form-group">
-									<label for="signin-password" class="control-label sr-only">Senha</label>
-									<input type="password" class="form-control" id="signin-password" value="" name="password" placeholder="Senha" required />
+									<label for="signin-password" class="control-label sr-only"><?=$this->lang->get('label_password');?></label>
+									<input type="password" class="form-control" id="signin-password" value="" name="password" placeholder="<?=$this->lang->get('label_password');?>" required />
 								</div>
 
-								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGAR</button>
+								<button type="submit" class="btn btn-primary btn-lg btn-block"><?=$this->lang->get('btn_login');?></button>
 								<div class="bottom">
-									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Esqueceu sua senha?</a></span>
+									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#"><?=$this->lang->get('label_forgot_password');?></a></span>
 								</div>
 							</form>
 						</div>

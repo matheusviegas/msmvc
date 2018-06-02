@@ -12,6 +12,14 @@ class Input {
    		return $key == null ? $_POST : $_POST[$key];
    }
 
+   public static function has($key, $type = 'POST'){
+      if($type === 'POST'){
+         return isset($_POST[$key]);
+      } else {
+         return isset($_GET[$key]);
+      }
+   }
+
    public static function validate($data, $filters){
    		$array = explode("|", $filters);
 

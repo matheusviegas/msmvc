@@ -5,6 +5,7 @@ namespace App\Core;
 use App\Core\Language;
 use App\Core\Helpers\Session;
 use App\Core\Helpers\Config;
+use App\Core\Helpers\Input;
 use App\Core\Auth;
 
 class Controller {
@@ -116,6 +117,28 @@ class Controller {
 
 	public function getCSS(){
 		return $this->additionalCSS;
+	}
+
+	// CSRF PROTECTION
+	public function generateToken($formName){
+	    return sha1($formName.Session::getSessionID().Config::get('app_key'));
+	}
+
+	public function csrf_field($formName){
+		echo "<input type='hidden' name='form_name' value='" . $formName . "' />";
+		echo "<input type='hidden' name='csrf_token' value='" . $this->generateToken($formName) . "' />";
+	}
+
+	public function verifyCSRFToken(){
+		if(Input::has('csrf_token') && Input::has('form_name')){
+			if(Input::post('csrf_token') !== $this->generateToken(Input::post('form_name'))){
+				$this->redirect('login', ['flash' => ['error' => 'Invalid CSRF token.']]);
+				// invalid token
+			}
+		} else {
+			$this->redirect('login', ['flash' => ['error' => 'CSRF fields not informed correctly.']]);
+			// filds not informed
+		}
 	}
 
 }

@@ -53,4 +53,8 @@ class Session{
 		}
 	}
 
+	public static function getSessionID(){
+	    return session_id();
+	}
+
 }

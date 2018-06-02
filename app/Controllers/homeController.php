@@ -33,4 +33,17 @@ class HomeController extends Controller {
         $this->template('home', ['usuario' => Auth::user()], ['titulo' => 'Inicio', 'active_menu_item' => 'home']);
     }
 
+    public function test(){
+        echo "<form name='csrf_form' method='POST' action='" . $this->base('home/teste', TRUE) . "'>";
+        $this->csrf_field('csrf_form');
+        echo "<input type='text' name='cidade' value='Pelotas' /><input type='submit' value='OK' /></form>";
+    }
+
+    public function teste(){
+        echo "<pre>";
+        var_dump($_POST);
+        echo "<br /><br />";
+        var_dump($this->verifyCSRFToken());
+    }
+
 }

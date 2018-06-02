@@ -34,7 +34,7 @@ if(ENVIRONMENT == 'development') {
 	$config['table_prefix'] = '';
 }
 
-$config['default_lang'] = 'pt-br';
+$config['default_lang'] = 'en';
 $config['default_timezone'] = 'America/Sao_Paulo';
 $config['default_controller'] = 'home';
 $config['default_template'] = 'main_template';
@@ -74,6 +74,8 @@ $config['menu_items'] = [
 	]
 ];
 
+// APPLICATION KEY
+$config['app_key'] = '28a19bdec9d377befe';
 
 
 // Titulos

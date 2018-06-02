@@ -4,33 +4,32 @@ namespace App\Core;
 
 class Language {
 
-	private $l;
-	private $ini;
+	private $language;
+	private $languageArray;
 
 	public function __construct() {
 		global $config;
-		$this->l = $config['default_lang'];
+		$this->language = $config['default_lang'];
 
-		if(!empty($_SESSION['lang']) && file_exists('App/Lang/'.$_SESSION['lang'].'.ini')) {
-			$this->l = $_SESSION['lang'];
+		if(!empty($_SESSION['lang']) && file_exists('App/Lang/'.$_SESSION['lang'].'.php')) {
+			$this->language = $_SESSION['lang'];
 		}
 
-		$this->ini = parse_ini_file('App/Lang/'.$this->l.'.ini');
+		require_once('App/Lang/'.$this->language . '.php');
+		$this->languageArray = $lang;
 	}
 
-	public function get($word, $return = false) {
-		$text = $word;
-
-		if(isset($this->ini[$word])) {
-			$text = $this->ini[$word];
+	public function get($keyWord, $return = false) {
+		if(isset($this->languageArray[$keyWord])) {
+			if($return) {
+				return $this->languageArray[$keyWord];
+			} else {
+				echo $this->languageArray[$keyWord];
+				return;
+			}
 		}
 
-		if($return) {
-			return $text;
-		} else {
-			echo $text;
-		}
-
+		return $keyWord;
 	}
 
 }

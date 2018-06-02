@@ -18,10 +18,12 @@ class LoginController extends Controller {
     }
 
     public function index() {
+       
     	$this->view('Auth/login_form');
     }
 
     public function authenticate(){
+        $this->verifyCSRFToken();
     	$data = Input::post();
 
     	if(Input::validate($data, 'required')){
