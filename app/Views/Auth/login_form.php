@@ -64,26 +64,17 @@
 	<script src="<?=BASE_URL;?>assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="<?=BASE_URL;?>assets/vendor/toastr/toastr.min.js"></script>
 	<script src="<?=BASE_URL;?>assets/scripts/klorofil-common.js"></script>
+	<script src="<?=BASE_URL;?>assets/js/app.js"></script>
 
-	<script type="text/javascript">
-		$(document).ready(function(){
-			var BASE_URL = '<?=BASE_URL;?>';
-
-			<?php if(\App\Core\Helpers\Session::has('flash')): 
-				$msg = \App\Core\Helpers\Session::flash('flash');
-				foreach($msg as $key => $val):?>
-					toastr.options.closeMethod = 'fadeOut';
-					toastr.options.closeDuration = 1000;
-					toastr.options.closeEasing = 'swing';
-					toastr.options.newestOnTop = false;
-					toastr.options.timeOut = 5000; 
-					toastr.options.extendedTimeOut = 1000;
-					toastr.options.progressBar = true;
-					toastr.options.closeButton = true;
+	<?php if(\App\Core\Helpers\Session::has('flash')): ?>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				<?php foreach(\App\Core\Helpers\Session::flash('flash') as $key => $val):?>
 					toastr['<?=$key;?>']('<?=$val;?>');
-			<?php endforeach; endif;?>
-		});
-	</script>
+				<?php endforeach;?>
+			});
+		</script>
+	<?php endif; ?>
 </body>
 
 </html>
