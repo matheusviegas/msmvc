@@ -15,7 +15,6 @@ class Controller {
 	protected $additionalCSS;
 
 	public function __construct($role = null) {
-		global $config;
 		$this->lang = new Language();
 		$this->additionalJS = [];
 		$this->additionalCSS = [];

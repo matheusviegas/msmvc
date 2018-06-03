@@ -3,19 +3,21 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
+use App\Core\Helpers\Session;
+use App\Core\Helpers\Config;
 
-class langController extends Controller{
-
-	private $user;
+class LangController extends Controller {
 
 	public function __construct(){
 		parent::__construct();
 	}
 
-	public function index(){}
+	public function index(){
+
+	}
 
 	public function set($lang){
-		$_SESSION['lang'] = $lang;
-		header("Location: " . BASE_URL);
+		Session::put('lang', $lang);
+		$this->redirect(Config::get('default_controller'));
 	}
 }
