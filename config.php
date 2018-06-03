@@ -77,6 +77,9 @@ $config['menu_items'] = [
 // APPLICATION KEY
 $config['app_key'] = '28a19bdec9d377befe';
 
+// PDO
+$config['default_pdo_fetch_mode'] = PDO::FETCH_OBJ;
+
 
 // Titulos
 $config['title_prefix'] = 'MS | ';

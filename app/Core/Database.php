@@ -12,8 +12,6 @@ use PDO;
 class Database {
 
 	public function init(){
-		global $config;
-
 		$capsule = new Capsule;
 
 		$capsule->addConnection([
