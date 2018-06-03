@@ -120,24 +120,25 @@ class Controller {
 	}
 
 	// CSRF PROTECTION
-	public function generateToken($formName){
+	public function generateToken($formName, $validate = false){
+		if(!$validate) {
+			$formName = md5($formName);
+		}
 	    return sha1($formName.Session::getSessionID().Config::get('app_key'));
 	}
 
 	public function csrf_field($formName){
-		echo "<input type='hidden' name='form_name' value='" . $formName . "' />";
+		echo "<input type='hidden' name='form_name' value='" . md5($formName) . "' />";
 		echo "<input type='hidden' name='csrf_token' value='" . $this->generateToken($formName) . "' />";
 	}
 
 	public function verifyCSRFToken(){
 		if(Input::has('csrf_token') && Input::has('form_name')){
-			if(Input::post('csrf_token') !== $this->generateToken(Input::post('form_name'))){
-				$this->redirect('login', ['flash' => ['error' => 'Invalid CSRF token.']]);
-				// invalid token
+			if(Input::post('csrf_token') !== $this->generateToken(Input::post('form_name'), true)){
+				$this->redirect('login', ['flash' => ['error' => $this->lang->get('csrf_invalid_token', TRUE)]]);
 			}
 		} else {
-			$this->redirect('login', ['flash' => ['error' => 'CSRF fields not informed correctly.']]);
-			// filds not informed
+			$this->redirect('login', ['flash' => ['error' => $this->lang->get('csrf_validation_failed', TRUE)]]);
 		}
 	}
 
