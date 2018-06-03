@@ -24,7 +24,8 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "@composer update"
+            "@composer update",
+            "mkdir uploads/profile_pictures"
         ]
     }
 }

@@ -33,15 +33,7 @@ class HomeController extends Controller {
        // $this->addJS(['datatables', 'toastr', 'sweetalert']);
       //  $this->addCSS(['teste1', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2']);
       //  $this->addJS('https://jquery.com/jquery-wp-content/themes/jquery/js/main.js', true);
-      //  $this->template('home', ['usuario' => Auth::user()], ['titulo' => 'Inicio', 'active_menu_item' => 'home']);
-        echo "<pre>";
-        var_dump(DB::find('users', 1));
-
-        echo "<br /><br />";
-        var_dump(DB::query('select * from users where id = :id', [':id' => 1]));
-
-        echo "<br /><br />";
-        var_dump(User::find(1));
+        $this->template('home', ['usuario' => Auth::user()], ['titulo' => 'Inicio', 'active_menu_item' => 'home']);
     }
 
     public function test(){

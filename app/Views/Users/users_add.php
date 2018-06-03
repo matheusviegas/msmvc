@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-6">
-		<form method="POST" action="<?=$this->base('users/save');?>">
+		<form method="POST" action="<?=$this->base('users/save');?>" enctype="multipart/form-data">
 			<?php if(!empty($user)) : ?>
 				<input type="hidden" name="id" value="<?=$user->id;?>" />
 			<?php endif; ?>
@@ -46,9 +46,10 @@
 
 			<div class="row">
 				<div class="col-md-6">
-					<label class="btn btn-default" style="width: 100%;">
+					<input type="file" name="picture" />
+					<!--<label class="btn btn-default" style="width: 100%;">
 					    <i class="fa fa-camera" style="margin-right: 5px;"></i> Selecionar Foto <input type="file" name="picture" style="display: none;">
-					</label>
+					</label>-->
 				</div>
 			</div>
 

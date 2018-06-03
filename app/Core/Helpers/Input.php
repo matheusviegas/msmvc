@@ -13,10 +13,16 @@ class Input {
    }
 
    public static function has($key, $type = 'POST'){
-      if($type === 'POST'){
-         return isset($_POST[$key]);
-      } else {
-         return isset($_GET[$key]);
+
+      switch($type){
+         case 'POST':
+            return isset($_POST[$key]);
+         case 'GET':
+            return isset($_GET[$key]);
+         case 'FILE':
+            return isset($_FILES[$key]);
+         default:
+            return false;
       }
    }
 

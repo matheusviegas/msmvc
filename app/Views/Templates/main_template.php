@@ -73,14 +73,13 @@
 								$loggedUser = \App\Core\Auth::user();
 							?>
 
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?=($loggedUser->picture != null ? $loggedUser->picture : BASE_URL . 'assets/img/user.png');?>" class="img-circle" alt="Avatar"> <span><?=$loggedUser->name;?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?=($loggedUser->picture != null ? BASE_URL . 'uploads/profile_pictures/' . $loggedUser->picture : BASE_URL . 'assets/img/no_picture.png');?>" class="img-circle" alt="Avatar"> <span><?=$loggedUser->name;?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?=$this->base('profile'); ?>"><i class="lnr lnr-user"></i> <span>Perfil</span></a></li>
 								<li><a href="<?=$this->base('settings'); ?>"><i class="lnr lnr-cog"></i> <span>Configurações</span></a></li>
 								<li><a href="<?=$this->base('logout'); ?>"><i class="lnr lnr-exit"></i> <span>Sair</span></a></li>
 							</ul>
 						</li>
-
 					</ul>
 				</div>
 			</div>

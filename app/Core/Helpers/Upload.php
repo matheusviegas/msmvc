@@ -1,37 +1,46 @@
 <?php
 
 namespace App\Core\Helpers;
+use App\Core\Helpers\Config;
+use App\Core\Language;
 
 class Upload {
 	
-	public static function do($name, $dir = 'uploads/', $format, $tamanho = 500000){
-		$arquivo = $dir . basename($_FILES[$name]["name"]);
-		$ext = pathinfo($arquivo, PATHINFO_EXTENSION);
-		$arquivo = $dir . strtotime("now") . "." . $ext;
+	public static function do($name, $uploadOptions = []){
+		$lang = new Language;
+
+		$dir = !empty($uploadOptions['dir']) ? $uploadOptions['dir'] : Config::get('default_upload_dir');
+		$max_size = !empty($uploadOptions['max_size']) ? $uploadOptions['max_size'] : Config::get('max_file_size');
+		$extensions = !empty($uploadOptions['extensions']) && is_array($uploadOptions['extensions']) ? $uploadOptions['extensions'] : Config::get('whitelist_extensions');
+
+		$file_path = $dir . basename($_FILES[$name]["name"]);
+		$ext = pathinfo($file_path, PATHINFO_EXTENSION);
+		$filename = strtotime("now") . "." . $ext;
+		$file_path = $dir . $filename;
 
 		$uploadOk = TRUE;
-		$ext = pathinfo($arquivo, PATHINFO_EXTENSION);
 		$msg = "";
 		
-		if ($_FILES[$name]["size"] > $tamanho) {
-		    $msg = "Tamanho do arquivo excede o limite permitido.";
+		if ($_FILES[$name]["size"] > $max_size) {
+		    $msg = $lang->get('max_file_size_overreached', true);
 		    $uploadOk = FALSE;
 		}
 
-		if(!in_array($ext, $format)){
+		if(!in_array(strtolower($ext), $extensions)){
 			$uploadOk = FALSE;
-			$msg = "Formato de arquivo inválido.";
+			$msg = $lang->get('file_format_not_allowed', true);
 		}
 
 		if ($uploadOk) {
-			if (move_uploaded_file($_FILES[$name]["tmp_name"], $arquivo)) {
-			    $msg = "Arquivo enviado com sucesso.";
+			if (move_uploaded_file($_FILES[$name]["tmp_name"], $file_path)) {
+			    $msg = $lang->get('upload_success', true);
 			} else {
 			    $uploadOk = FALSE;
-			    $msg = "Erro ao enviar arquivo.";
+			    $msg = $lang->get('upload_error', true);
 			}
 		}
 
-		return array('status' => $uploadOk, 'msg' => $msg);
+		return array('status' => $uploadOk, 'msg' => $msg, 'filename' => $filename);
 	}
+
 }

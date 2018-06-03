@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Core;
+use App\Core\Helpers\Config;
+use App\Core\Helpers\Session;
 
 class Language {
 
@@ -8,15 +10,13 @@ class Language {
 	private $languageArray;
 
 	public function __construct() {
-		global $config;
-		$this->language = $config['default_lang'];
+		$this->language = Config::get('default_lang');
 
-		if(!empty($_SESSION['lang']) && file_exists('App/Lang/'.$_SESSION['lang'].'.php')) {
-			$this->language = $_SESSION['lang'];
+		if(Session::has('lang') && file_exists('App/Lang/'. Session::get('lang') .'.php')) {
+			$this->language = Session::get('lang');
 		}
 
-		require_once('App/Lang/'.$this->language . '.php');
-		$this->languageArray = $lang;
+		$this->languageArray = require('App/Lang/'.$this->language . '.php');
 	}
 
 	public function get($keyWord, $return = false) {

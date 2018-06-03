@@ -10,12 +10,12 @@ if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/msmvc/");
 	$config['driver'] = 'mysql';
 	$config['dbname'] = 'msmvc2';
-	$config['host'] = 'localhost';
+	$config['dbhost'] = 'localhost';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
-	$config['charset'] = 'utf8';
-	$config['collation'] = 'utf8_unicode_ci';
-	$config['table_prefix'] = '';
+	$config['dbcharset'] = 'utf8';
+	$config['dbcollation'] = 'utf8_unicode_ci';
+	$config['dbtable_prefix'] = '';
 
 
 	ini_set('display_errors', 1);
@@ -26,12 +26,12 @@ if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "");
 	$config['driver'] = '';
 	$config['dbname'] = '';
-	$config['host'] = '';
+	$config['dbhost'] = '';
 	$config['dbuser'] = '';
 	$config['dbpass'] = '';
-	$config['charset'] = 'utf8';
-	$config['collation'] = 'utf8_unicode_ci';
-	$config['table_prefix'] = '';
+	$config['dbcharset'] = 'utf8';
+	$config['dbcollation'] = 'utf8_unicode_ci';
+	$config['dbtable_prefix'] = '';
 }
 
 $config['default_lang'] = 'en';
@@ -104,5 +104,10 @@ $config['mail_smtp_port'] = '465';
 $config['mail_smtp_type'] = 'html';
 $config['mail_smtp_auth'] = TRUE;
 $config['mail_smtp_secure']	= 'ssl';
+
+// UPLOAD HELPER CONFIGURATION
+$config['default_upload_dir'] = 'uploads/';
+$config['max_file_size'] = 500000;
+$config['whitelist_extensions'] = ['png', 'jpg', 'jpeg', 'gif', 'zip', 'tar.gz', 'tar.bz', 'rar'];
 
 ?>

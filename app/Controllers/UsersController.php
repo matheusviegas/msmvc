@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Core\Helpers\Upload;
 use App\Core\Helpers\Email;
 
 use App\Models\User;
@@ -11,6 +10,7 @@ use App\Models\Group;
 use App\Core\Auth;
 use App\Core\Helpers\Session;
 use App\Core\Helpers\Input;
+use App\Core\Helpers\Upload;
 
 class UsersController extends Controller {
 
@@ -68,7 +68,7 @@ class UsersController extends Controller {
       $this->template('Users/users_open', ['user' => User::find(intval($id))], $configTemplate);
     }
 
-    public function save(){
+    public function save(){  
       $this->requirePermission('users_save', 'users', 'Voce não tem permissão para criar ou alterar usuarios.');
       $data = Input::post();
 
@@ -87,9 +87,27 @@ class UsersController extends Controller {
         $user->group()->associate($group);
       }
 
+      $flashMSG = [
+        'success' => $this->lang->get('update_sucessful', TRUE)
+      ];
+
+      if(Input::has('picture', 'FILE')){
+        $uploadOptions = [
+          'extensions' => ['png', 'jpg', 'jpeg', 'gif'],
+          'dir' => 'uploads/profile_pictures/'
+        ];
+
+        $upload = Upload::do('picture', $uploadOptions);
+
+        if($upload['status']) {
+          $user->picture = $upload['filename'];
+        } else {
+          $flashMSG['error'] = $upload['msg'];
+        }
+      }
       $user->save();
 
-      $this->redirect('users', ['flash' => ['success' => 'Alterações salvas com sucesso!']]);
+      $this->redirect('users', ['flash' => $flashMSG]);
     }
 
     public function delete($id){
