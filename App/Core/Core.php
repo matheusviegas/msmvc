@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Core;
+
 use App\Core\Helpers\Config;
 
 class Core {
