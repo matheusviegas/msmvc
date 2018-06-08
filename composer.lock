@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "39c22627488e477f8752f3930d1c5e11",
@@ -75,16 +75,16 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.6.23",
+            "version": "v5.6.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "1a29b314dd5c7a5a5bce3dd7b9da924cc1ec22ec"
+                "reference": "1f0757cae8749400aeda730f6438a081fc3c082d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/1a29b314dd5c7a5a5bce3dd7b9da924cc1ec22ec",
-                "reference": "1a29b314dd5c7a5a5bce3dd7b9da924cc1ec22ec",
+                "url": "https://api.github.com/repos/illuminate/container/zipball/1f0757cae8749400aeda730f6438a081fc3c082d",
+                "reference": "1f0757cae8749400aeda730f6438a081fc3c082d",
                 "shasum": ""
             },
             "require": {
@@ -115,11 +115,11 @@
             ],
             "description": "The Illuminate Container package.",
             "homepage": "https://laravel.com",
-            "time": "2018-05-14T12:49:42+00:00"
+            "time": "2018-05-24T13:16:56+00:00"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.6.23",
+            "version": "v5.6.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -163,16 +163,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v5.6.23",
+            "version": "v5.6.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "fe10cc28c1130f7294c5450c428b59a9641b0c20"
+                "reference": "a31e39433a97404d90ea12af4f0d3f6fc1818a9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/fe10cc28c1130f7294c5450c428b59a9641b0c20",
-                "reference": "fe10cc28c1130f7294c5450c428b59a9641b0c20",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/a31e39433a97404d90ea12af4f0d3f6fc1818a9e",
+                "reference": "a31e39433a97404d90ea12af4f0d3f6fc1818a9e",
                 "shasum": ""
             },
             "require": {
@@ -218,20 +218,20 @@
                 "orm",
                 "sql"
             ],
-            "time": "2018-05-21T14:36:25+00:00"
+            "time": "2018-06-04T14:50:35+00:00"
         },
         {
             "name": "illuminate/support",
-            "version": "v5.6.23",
+            "version": "v5.6.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "7ba15bb00ac57c621e8291ce737ae7ea497ba02b"
+                "reference": "b13296a75443797d6a71d0ccd437ca801b12d300"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/7ba15bb00ac57c621e8291ce737ae7ea497ba02b",
-                "reference": "7ba15bb00ac57c621e8291ce737ae7ea497ba02b",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/b13296a75443797d6a71d0ccd437ca801b12d300",
+                "reference": "b13296a75443797d6a71d0ccd437ca801b12d300",
                 "shasum": ""
             },
             "require": {
@@ -246,6 +246,7 @@
             },
             "suggest": {
                 "illuminate/filesystem": "Required to use the composer class (5.6.*).",
+                "ramsey/uuid": "Required to use Str::uuid() (^3.7).",
                 "symfony/process": "Required to use the composer class (~4.0).",
                 "symfony/var-dumper": "Required to use the dd function (~4.0)."
             },
@@ -275,7 +276,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2018-05-18T13:51:23+00:00"
+            "time": "2018-06-02T14:30:18+00:00"
         },
         {
             "name": "mpdf/mpdf",
@@ -443,16 +444,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.12",
+            "version": "v2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb"
+                "reference": "f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
-                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5",
+                "reference": "f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5",
                 "shasum": ""
             },
             "require": {
@@ -484,10 +485,11 @@
             "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
             "keywords": [
                 "csprng",
+                "polyfill",
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-04-04T21:24:14+00:00"
+            "time": "2018-06-06T17:40:22+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
