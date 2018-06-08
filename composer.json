@@ -27,7 +27,8 @@
     "scripts": {
         "post-create-project-cmd": [
             "@composer update",
-            "sudo mkdir -p uploads/profile_pictures"
+            "sudo mkdir -p uploads/profile_pictures",
+            "php -r \"copy('.env.example', '.env');\""
         ]
     }
 }
