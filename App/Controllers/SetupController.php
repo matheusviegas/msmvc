@@ -2,15 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Core\Controller;
-use App\Core\Auth;
-use App\Core\Helpers\Input;
-use App\Core\Helpers\Config;
-
-use App\Models\User;
-use App\Models\Role;
-use App\Models\Group;
-use App\Core\Database;
+use App\Core\{Auth, Controller, Database};
+use App\Core\Helpers\{Input, Config};
+use App\Models\{User, Role, Group};
 
 class SetupController extends Controller {
 

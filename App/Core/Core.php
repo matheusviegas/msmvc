@@ -7,7 +7,7 @@ use App\Core\Helpers\Config;
 class Core {
 
 	public function __construct(){
-		date_default_timezone_set(Config::get('default_timezone'));
+		date_default_timezone_set(getenv('APP_TIMEZONE'));
 	}
 
 	public function run() {

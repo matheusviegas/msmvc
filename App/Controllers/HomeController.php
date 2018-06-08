@@ -2,14 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Core\Controller;
-use App\Core\Helpers\Upload;
-use App\Core\Helpers\Email;
-
-use App\Core\Auth;
-use App\Core\Helpers\Session;
-
-use App\Core\Helpers\DB;
+use App\Core\{Controller, Auth};
+use App\Core\Helpers\{Upload, Email, Session, DB};
 use App\Models\User;
 
 class HomeController extends Controller {

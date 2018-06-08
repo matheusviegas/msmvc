@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Core;
+
+use App\Core\Database;
 use App\Core\Helpers\Session;
 use App\Models\User;
-use App\Core\Database;
 use PDO;
 
 class Auth {

@@ -2,11 +2,8 @@
 
 namespace App\Core;
 
-use App\Core\Language;
-use App\Core\Helpers\Session;
-use App\Core\Helpers\Config;
-use App\Core\Helpers\Input;
-use App\Core\Auth;
+use App\Core\{Auth, Language};
+use App\Core\Helpers\{Input, Session, Config};
 
 class Controller {
 
@@ -123,7 +120,7 @@ class Controller {
 		if(!$validate) {
 			$formName = md5($formName);
 		}
-	    return sha1($formName.Session::getSessionID().Config::get('app_key'));
+	    return sha1($formName.Session::getSessionID().getenv('APP_KEY'));
 	}
 
 	public function csrf_field($formName){

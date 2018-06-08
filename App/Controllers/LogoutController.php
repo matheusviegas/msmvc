@@ -2,8 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Core\Controller;
-use App\Core\Auth;
+use App\Core\{Controller, Auth};
 use App\Core\Helpers\Config;
 
 class LogoutController extends Controller {

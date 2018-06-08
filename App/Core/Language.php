@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Core;
-use App\Core\Helpers\Config;
-use App\Core\Helpers\Session;
+
+use App\Core\Helpers\{Session, Config};
 
 class Language {
 

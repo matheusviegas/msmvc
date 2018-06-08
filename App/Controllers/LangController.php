@@ -3,8 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Core\Helpers\Session;
-use App\Core\Helpers\Config;
+use App\Core\Helpers\{Config, Session};
 
 class LangController extends Controller {
 

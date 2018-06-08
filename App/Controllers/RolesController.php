@@ -2,15 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Core\Controller;
-use App\Core\Helpers\Upload;
-use App\Core\Helpers\Email;
-
-use App\Models\Group;
-use App\Models\Role;
-use App\Core\Auth;
-use App\Core\Helpers\Session;
-use App\Core\Helpers\Input;
+use App\Core\{Auth, Controller};
+use App\Core\Helpers\{Session, Upload, Input, Email};
+use App\Models\{Role, Group};
 
 class RolesController extends Controller {
 

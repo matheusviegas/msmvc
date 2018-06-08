@@ -6,7 +6,6 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Container\Container;
 use App\Core\Helpers\Config;
-
 use PDO;
 
 class Database {
@@ -15,21 +14,22 @@ class Database {
 		$capsule = new Capsule;
 
 		$capsule->addConnection([
-		    'driver'    => Config::get('driver'),
-		    'host'      => Config::get('dbhost'),
-		    'database'  => Config::get('dbname'),
-		    'username'  => Config::get('dbuser'),
-		    'password'  => Config::get('dbpass'),
-		    'charset'   => Config::get('dbcharset'),
-		    'collation' => Config::get('dbcollation'),
-		    'prefix'    => Config::get('dbtable_prefix'),
+		    'driver'    => getenv('DB_DRIVER'),
+		    'host'      => getenv('DB_HOST'),
+		    'database'  => getenv('DB_NAME'),
+		    'username'  => getenv('DB_USER'),
+		    'password'  => getenv('DB_PASSWORD'),
+		    'charset'   => getenv('DB_CHARSET'),
+		    'collation' => getenv('DB_COLLATION'),
+		    'prefix'    => getenv('DB_TABLE_PREFIX'),
+		    'port'      => getenv('DB_PORT')
 		]);
 
 		$capsule->bootEloquent();
 	}
 
 	public static function getPDO(){
-		$db = new PDO("mysql:dbname=".Config::get('dbname').";host=".Config::get('dbhost'), Config::get('dbuser'), Config::get('dbpass'));
+		$db = new PDO("mysql:dbname=".getenv('DB_NAME').";host=".getenv('DB_HOST') . ";port=" . getenv('DB_PORT'), getenv('DB_USER'), getenv('DB_PASSWORD'));
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		return $db;
 	}

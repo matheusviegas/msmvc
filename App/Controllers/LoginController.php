@@ -2,10 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Core\Controller;
-use App\Core\Auth;
-use App\Core\Helpers\Input;
-use App\Core\Helpers\Config;
+use App\Core\{Auth, Controller};
+use App\Core\Helpers\{Config, Input};
 
 class LoginController extends Controller {
 

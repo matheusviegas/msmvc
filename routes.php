@@ -1,4 +1,5 @@
 <?php
+
 use App\Core\Route;
 
 //$routes['/teste/{nome}/{sobrenome}'] = '/teste/testar/:nome/:sobrenome';

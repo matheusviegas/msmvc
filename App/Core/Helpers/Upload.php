@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Core\Helpers;
+
 use App\Core\Helpers\Config;
 use App\Core\Language;
 
