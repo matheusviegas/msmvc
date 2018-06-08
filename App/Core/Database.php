@@ -14,22 +14,22 @@ class Database {
 		$capsule = new Capsule;
 
 		$capsule->addConnection([
-		    'driver'    => getenv('DB_DRIVER'),
-		    'host'      => getenv('DB_HOST'),
-		    'database'  => getenv('DB_NAME'),
-		    'username'  => getenv('DB_USER'),
-		    'password'  => getenv('DB_PASSWORD'),
-		    'charset'   => getenv('DB_CHARSET'),
-		    'collation' => getenv('DB_COLLATION'),
-		    'prefix'    => getenv('DB_TABLE_PREFIX'),
-		    'port'      => getenv('DB_PORT')
+		    'driver'    => env('DB_DRIVER'),
+		    'host'      => env('DB_HOST'),
+		    'database'  => env('DB_NAME'),
+		    'username'  => env('DB_USER'),
+		    'password'  => env('DB_PASSWORD'),
+		    'charset'   => env('DB_CHARSET'),
+		    'collation' => env('DB_COLLATION'),
+		    'prefix'    => env('DB_TABLE_PREFIX'),
+		    'port'      => env('DB_PORT')
 		]);
 
 		$capsule->bootEloquent();
 	}
 
 	public static function getPDO(){
-		$db = new PDO("mysql:dbname=".getenv('DB_NAME').";host=".getenv('DB_HOST') . ";port=" . getenv('DB_PORT'), getenv('DB_USER'), getenv('DB_PASSWORD'));
+		$db = new PDO("mysql:dbname=".env('DB_NAME').";host=".env('DB_HOST') . ";port=" . env('DB_PORT'), env('DB_USER'), env('DB_PASSWORD'));
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		return $db;
 	}

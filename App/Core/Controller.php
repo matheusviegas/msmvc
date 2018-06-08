@@ -120,7 +120,7 @@ class Controller {
 		if(!$validate) {
 			$formName = md5($formName);
 		}
-	    return sha1($formName.Session::getSessionID().getenv('APP_KEY'));
+	    return sha1($formName.Session::getSessionID().env('APP_KEY'));
 	}
 
 	public function csrf_field($formName){

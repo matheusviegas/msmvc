@@ -7,7 +7,7 @@ use App\Core\Helpers\Config;
 class Core {
 
 	public function __construct(){
-		date_default_timezone_set(getenv('APP_TIMEZONE'));
+		date_default_timezone_set(env('APP_TIMEZONE'));
 	}
 
 	public function run() {

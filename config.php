@@ -4,10 +4,10 @@ global $config;
 global $routes;
 $routes = array();
 
-define('BASE_URL', getenv('BASE_URL'));
+define('BASE_URL', env('BASE_URL'));
 
 $config = array();
-if(getenv('ENVIRONMENT') == 'development') {
+if(env('ENVIRONMENT') == 'development') {
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
