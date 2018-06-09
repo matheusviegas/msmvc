@@ -11,7 +11,7 @@ class LogoutController extends Controller {
     }
 
     public function index() {
-    	Auth::logout();
+        Auth::logout();
         $this->redirect(Config::get('redirect_after_logout'));
     }
 

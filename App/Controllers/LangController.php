@@ -7,16 +7,17 @@ use App\Core\Libraries\Session;
 
 class LangController extends Controller {
 
-	public function __construct(){
-		parent::__construct();
-	}
+    public function __construct() {
+        parent::__construct();
+    }
 
-	public function index(){
+    public function index() {
+        
+    }
 
-	}
+    public function set($lang) {
+        Session::put('lang', $lang);
+        $this->redirect(Config::get('default_controller'));
+    }
 
-	public function set($lang){
-		Session::put('lang', $lang);
-		$this->redirect(Config::get('default_controller'));
-	}
 }

@@ -12,17 +12,17 @@ class SetupController extends Controller {
     }
 
     public function index() {
-    	echo "<a href='" . $this->base('setup/setup/1', TRUE) . "'>SETUP DATABASE</a>";
+        echo "<a href='" . $this->base('setup/setup/1', TRUE) . "'>SETUP DATABASE</a>";
     }
 
-    public function setup($step){
+    public function setup($step) {
 
-        if($step == 1){
+        if ($step == 1) {
             $table = "teste";
             try {
-                 $db = Database::getPDO();
+                $db = Database::getPDO();
 
-                 $sql = "CREATE TABLE groups (
+                $sql = "CREATE TABLE groups (
                           id int(11) NOT NULL,
                           name varchar(255) NOT NULL,
                           created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -70,13 +70,13 @@ class SetupController extends Controller {
                         ALTER TABLE users ADD CONSTRAINT fk_usuarios_grupos FOREIGN KEY (group_id) REFERENCES groups (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
                 ";
 
-                 $db->exec($sql);
-                 echo "Tabelas criadas! <a href='" . $this->base('setup/setup/2', TRUE) . "'>Popular base de dados</a>";
-            } catch(PDOException $e) {
+                $db->exec($sql);
+                echo "Tabelas criadas! <a href='" . $this->base('setup/setup/2', TRUE) . "'>Popular base de dados</a>";
+            } catch (PDOException $e) {
                 echo $e->getMessage();
             }
-        } else if($step == 2){
-        	$group = new Group();
+        } else if ($step == 2) {
+            $group = new Group();
             $group->name = 'Administrators';
             $group->save();
 

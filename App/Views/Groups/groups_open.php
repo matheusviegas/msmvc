@@ -1,24 +1,24 @@
 <div class="row">
-	<div class="col-md-6">
-		<table class="table">
-			<tbody>
-				<tr>
-					<th>Nome</th>
-					<td><?=$group->name;?></td>
-				</tr>
-				<tr>
-					<th>Roles</th>
-					<td>
-						<ul>
-							<?php foreach($group->roles as $role): ?>
-								<li><?='<b>' . $role->role . '</b> - ' . $role->description; ?></li>
-							<?php endforeach; ?>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+    <div class="col-md-6">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Nome</th>
+                    <td><?= $group->name; ?></td>
+                </tr>
+                <tr>
+                    <th>Roles</th>
+                    <td>
+                        <ul>
+                            <?php foreach ($group->roles as $role): ?>
+                                <li><?= '<b>' . $role->role . '</b> - ' . $role->description; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-		<a href="<?=$this->base('groups');?>" class="btn btn-default">Voltar</a>
-	</div>
+        <a href="<?= $this->base('groups'); ?>" class="btn btn-default">Voltar</a>
+    </div>
 </div>

@@ -3,40 +3,41 @@
 namespace App\Core\Libraries;
 
 class Input {
-	
-   public static function get($key = null){
-   		return $key == null ? $_GET : $_GET[$key];
-   }
 
-   public static function post($key = null){
-   		return $key == null ? $_POST : $_POST[$key];
-   }
+    public static function get($key = null) {
+        return $key == null ? $_GET : $_GET[$key];
+    }
 
-   public static function has($key, $type = 'POST'){
+    public static function post($key = null) {
+        return $key == null ? $_POST : $_POST[$key];
+    }
 
-      switch($type){
-         case 'POST':
-            return isset($_POST[$key]);
-         case 'GET':
-            return isset($_GET[$key]);
-         case 'FILE':
-            return isset($_FILES[$key]);
-         default:
-            return false;
-      }
-   }
+    public static function has($key, $type = 'POST') {
 
-   public static function validate($data, $filters){
-   		$array = explode("|", $filters);
+        switch ($type) {
+            case 'POST':
+                return isset($_POST[$key]);
+            case 'GET':
+                return isset($_GET[$key]);
+            case 'FILE':
+                return isset($_FILES[$key]);
+            default:
+                return false;
+        }
+    }
 
-   		foreach($data as $dat){
-   			foreach($array as $filter){
-   				if($filter === 'required' && empty($dat)){
-   					return false;
-   				}
-   			}
-   		}
+    public static function validate($data, $filters) {
+        $array = explode("|", $filters);
 
-   		return true;
-   }
+        foreach ($data as $dat) {
+            foreach ($array as $filter) {
+                if ($filter === 'required' && empty($dat)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
 }
