@@ -2,8 +2,8 @@
 
 <?php 
 
-if(\App\Core\Helpers\Session::has('flash')) {
-	$msg = \App\Core\Helpers\Session::flash('flash');
+if(\App\Core\Libraries\Session::has('flash')) {
+	$msg = \App\Core\Libraries\Session::flash('flash');
 
 	foreach($msg as $key => $val) {
 		echo $val;

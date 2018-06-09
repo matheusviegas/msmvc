@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Core\Helpers;
+namespace App\Core\Libraries;
 
-use App\Core\Helpers\Config;
-use App\Core\Language;
+use App\Core\{Config, Language};
 
 class Upload {
 	
-	public static function do($name, $uploadOptions = []){
+	public static function doUpload($name, $uploadOptions = []){
 		$lang = new Language;
 
 		$dir = !empty($uploadOptions['dir']) ? $uploadOptions['dir'] : Config::get('default_upload_dir');

@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\{Controller, Auth};
-use App\Core\Helpers\{Upload, Email, Session, Input};
+use App\Core\Libraries\{Upload, Email, Session, Input};
 use App\Models\{Group, Role};
 
 class GroupsController extends Controller {

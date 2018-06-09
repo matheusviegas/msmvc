@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Core\Controller;
-use App\Core\Helpers\{Config, Session};
+use App\Core\{Config, Controller};
+use App\Core\Libraries\Session;
 
 class LangController extends Controller {
 

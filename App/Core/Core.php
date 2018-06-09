@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-use App\Core\Helpers\Config;
+use App\Core\Config;
 
 class Core {
 

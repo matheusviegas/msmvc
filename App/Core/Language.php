@@ -2,7 +2,8 @@
 
 namespace App\Core;
 
-use App\Core\Helpers\{Session, Config};
+use App\Core\Config;
+use App\Core\Libraries\Session;
 
 class Language {
 

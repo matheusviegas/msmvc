@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-	<title><?=(\App\Core\Helpers\Config::get('title_prefix') . (!empty($title) ? $title : '') . \App\Core\Helpers\Config::get('title_sufix'));?></title>
+	<title><?=(\App\Core\Config::get('title_prefix') . (!empty($title) ? $title : '') . \App\Core\Config::get('title_sufix'));?></title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -91,7 +91,7 @@
 				<nav>
 					<ul class="nav">
 
-						<?php foreach(\App\Core\Helpers\Config::get('menu_items') as $key => $val): ?>
+						<?php foreach(\App\Core\Config::get('menu_items') as $key => $val): ?>
 						<li><a href="<?=$this->base($val['link']); ?>" class="<?=!empty($active_menu_item) && $active_menu_item == $key ? 'active' : '';?>"><i class="lnr lnr-<?=$val['icon'];?>"></i> <span><?=$val['title'];?></span></a></li>
 						<?php  endforeach;?>
 
@@ -156,10 +156,10 @@
 	<script src="<?=BASE_URL;?>assets/scripts/klorofil-common.js"></script>
 	<script src="<?=BASE_URL;?>assets/js/app.js"></script>
 
-	<?php if(\App\Core\Helpers\Session::has('flash')): ?>
+	<?php if(\App\Core\Libraries\Session::has('flash')): ?>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				<?php foreach(\App\Core\Helpers\Session::flash('flash') as $key => $val):?>
+				<?php foreach(\App\Core\Libraries\Session::flash('flash') as $key => $val):?>
 					toastr['<?=$key;?>']('<?=$val;?>');
 				<?php endforeach;?>
 			});

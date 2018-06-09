@@ -1,7 +1,7 @@
 <?php
 
 use App\Core\{Database, Core};
-use App\Core\Helpers\Session;
+use App\Core\Libraries\Session;
 
 require 'vendor/autoload.php';
 

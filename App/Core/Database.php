@@ -3,9 +3,6 @@
 namespace App\Core;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Container\Container;
-use App\Core\Helpers\Config;
 use PDO;
 
 class Database {

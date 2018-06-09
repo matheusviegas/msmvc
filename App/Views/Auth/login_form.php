@@ -66,10 +66,10 @@
 	<script src="<?=BASE_URL;?>assets/scripts/klorofil-common.js"></script>
 	<script src="<?=BASE_URL;?>assets/js/app.js"></script>
 
-	<?php if(\App\Core\Helpers\Session::has('flash')): ?>
+	<?php if(\App\Core\Libraries\Session::has('flash')): ?>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				<?php foreach(\App\Core\Helpers\Session::flash('flash') as $key => $val):?>
+				<?php foreach(\App\Core\Libraries\Session::flash('flash') as $key => $val):?>
 					toastr['<?=$key;?>']('<?=$val;?>');
 				<?php endforeach;?>
 			});

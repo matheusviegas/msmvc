@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Core\Helpers;
+namespace App\Core\Libraries;
 
 use PDO;
-use App\Core\Database;
-use App\Core\Helpers\Config;
+use App\Core\{Database, Config};
 
 class DB {
     protected static $pdo = null;

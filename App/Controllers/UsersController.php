@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\{Auth, Controller};
-use App\Core\Helpers\{Input, Session, Upload, Email};
+use App\Core\Libraries\{Input, Session, Upload, Email};
 use App\Models\{Group, User};
 
 class UsersController extends Controller {
@@ -91,7 +91,7 @@ class UsersController extends Controller {
           'dir' => 'uploads/profile_pictures/'
         ];
 
-        $upload = Upload::do('picture', $uploadOptions);
+        $upload = Upload::doUpload('picture', $uploadOptions);
 
         if($upload['status']) {
           $user->picture = $upload['filename'];

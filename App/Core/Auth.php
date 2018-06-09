@@ -3,7 +3,7 @@
 namespace App\Core;
 
 use App\Core\Database;
-use App\Core\Helpers\Session;
+use App\Core\Libraries\Session;
 use App\Models\User;
 use PDO;
 

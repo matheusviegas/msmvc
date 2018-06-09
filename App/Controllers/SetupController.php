@@ -2,8 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Core\{Auth, Controller, Database};
-use App\Core\Helpers\{Input, Config};
+use App\Core\{Controller, Database};
 use App\Models\{User, Role, Group};
 
 class SetupController extends Controller {

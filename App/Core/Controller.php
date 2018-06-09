@@ -2,8 +2,8 @@
 
 namespace App\Core;
 
-use App\Core\{Auth, Language};
-use App\Core\Helpers\{Input, Session, Config};
+use App\Core\{Auth, Language, Config};
+use App\Core\Libraries\{Input, Session};
 
 class Controller {
 
