@@ -4,7 +4,7 @@ global $config;
 global $routes;
 $routes = array();
 
-define('BASE_URL', env('BASE_URL'));
+define('BASE_URL', 'http://localhost/msmvc/');
 
 $config = array();
 if(env('ENVIRONMENT') == 'development') {
