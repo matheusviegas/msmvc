@@ -8,8 +8,8 @@ use App\Models\User;
 class Auth {
 
     public static function user() {
-        if (Session::has('id_user')) {
-            return User::find(intval(Session::get('id_user')));
+        if (Session::has('authenticated_user_id')) {
+            return User::find(intval(Session::get('authenticated_user_id')));
         } else {
             return null;
         }
@@ -19,19 +19,14 @@ class Auth {
         $user = User::where('email', $email)->where('password', MD5($password))->first();
 
         if ($user !== null) {
-            Session::put('id_user', $user->id);
-            Session::put('name_user', $user->name);
-            Session::put('lastname_user', $user->lastname);
-            Session::put('email_user', $user->email);
-            Session::put('registration_date_user', $user->registration_date);
-            Session::put('picture_user', $user->picture);
+            Session::put('authenticated_user_id', $user->id);
         }
 
         return $user;
     }
 
     public static function hasPermission($role) {
-        return Session::has('id_user') && Auth::user()->group->roles->where('role', $role)->count() > 0;
+        return Session::has('authenticated_user_id') && Auth::user()->group->roles->where('role', $role)->count() > 0;
     }
 
     public static function logout() {

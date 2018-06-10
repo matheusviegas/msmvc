@@ -10,10 +10,7 @@ class GroupsController extends Controller {
 
     public function __construct() {
         parent::__construct();
-
-        if (Auth::user() == null) {
-            $this->redirect('login', ['mensagem' => 'Área restrita a usuários logados.']);
-        }
+        $this->middleware('auth');
     }
 
     public function index() {

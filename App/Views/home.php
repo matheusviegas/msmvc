@@ -1,1 +1,1 @@
-<h1>Olá <?= $usuario->nome; ?></h1>
+<h1>Olá <?= $usuario->name; ?></h1>

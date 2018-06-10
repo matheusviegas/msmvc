@@ -10,11 +10,13 @@ class Controller {
     protected $lang;
     protected $additionalJS;
     protected $additionalCSS;
+    private $middleware;
 
     public function __construct($role = null) {
         $this->lang = new Language();
         $this->additionalJS = [];
         $this->additionalCSS = [];
+        $this->middleware = [];
 
         if ($role != null && $role != 'public') {
             if (!Auth::hasPermission($role)) {
@@ -136,6 +138,14 @@ class Controller {
         } else {
             $this->redirect('login', ['flash' => ['error' => $this->lang->get('csrf_validation_failed', TRUE)]]);
         }
+    }
+
+    protected function middleware($middleware, $methods = []){
+        $this->middleware[$middleware] = $methods;
+    }
+
+    public function getMiddlewares(){
+        return $this->middleware;
     }
 
 }

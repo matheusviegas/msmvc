@@ -55,6 +55,10 @@ class Core {
         if (class_exists($controllerClassName)) {
             $controllerClass = new $controllerClassName();
 
+            $this->handleMiddlewares($controllerClass->getMiddlewares(), $currentAction);
+
+           // dd($controllerClass->getMiddlewares());
+
             if (method_exists($controllerClass, $currentAction)) {
                 call_user_func_array(array($controllerClass, $currentAction), $params);
                 return;
@@ -95,6 +99,15 @@ class Core {
         }
 
         return $url;
+    }
+
+    private function handleMiddlewares($middlewares, $method){
+        foreach($middlewares as $mid => $methods){
+            if(empty($methods) || in_array($method, $methods)){
+                $middlewareClass = '\\App\\Middlewares\\' . ucfirst($mid) . 'Middleware';
+                (new $middlewareClass())->handle();
+            }
+        }
     }
 
 }

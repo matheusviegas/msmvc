@@ -9,9 +9,13 @@ class HomeController extends Controller {
     public function __construct() {
         parent::__construct();
 
-        if (Auth::user() == null) {
+        $this->middleware('auth', ['index', 'update', 'delete']);
+
+        //echo (new \ReflectionClass($this))->getShortName();exit;
+
+       /* if (Auth::user() == null) {
             $this->redirect('login', ['flash' => ['error' => 'Área restrita a usuários logados.']]);
-        }
+        }*/
     }
 
     public function index() {

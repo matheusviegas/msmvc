@@ -1,5 +1,7 @@
 <?php
 
+use App\Core\Libraries\Session;
+
 if (!function_exists('base')) {
 
     function base($destination, $return = FALSE) {

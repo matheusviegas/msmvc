@@ -9,10 +9,7 @@ class LoginController extends Controller {
 
     public function __construct() {
         parent::__construct();
-
-        if (Auth::user() != null) {
-            $this->redirect('home');
-        }
+        $this->middleware('auth');
     }
 
     public function index() {
