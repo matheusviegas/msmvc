@@ -8,14 +8,7 @@ class HomeController extends Controller {
 
     public function __construct() {
         parent::__construct();
-
-        $this->middleware('auth', ['index', 'update', 'delete']);
-
-        //echo (new \ReflectionClass($this))->getShortName();exit;
-
-       /* if (Auth::user() == null) {
-            $this->redirect('login', ['flash' => ['error' => 'Área restrita a usuários logados.']]);
-        }*/
+        $this->middleware('auth');
     }
 
     public function index() {

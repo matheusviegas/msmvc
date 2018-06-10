@@ -9,11 +9,9 @@ class LoginController extends Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->middleware('auth');
     }
 
     public function index() {
-
         $this->view('Auth/login_form');
     }
 

@@ -102,9 +102,10 @@ class Core {
     }
 
     private function handleMiddlewares($middlewares, $method){
-        foreach($middlewares as $mid => $methods){
-            if(empty($methods) || in_array($method, $methods)){
-                $middlewareClass = '\\App\\Middlewares\\' . ucfirst($mid) . 'Middleware';
+        foreach($middlewares as $middleware){
+            if((empty($middleware->getMethods()) && $middleware->getType() === 'all') || ($middleware->getType() === 'methods' && in_array($method, $middleware->getMethods())) || 
+                ($middleware->getType() === 'except' && !in_array($method, $middleware->getMethods()))){
+                $middlewareClass = '\\App\\Middlewares\\' . ucfirst($middleware->getName()) . 'Middleware';
                 (new $middlewareClass())->handle();
             }
         }

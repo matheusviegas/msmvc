@@ -4,6 +4,7 @@ namespace App\Core;
 
 use App\Core\{Auth, Language, Config};
 use App\Core\Libraries\{Input, Session};
+use App\Core\Util\MiddlewareItem;
 
 class Controller {
 
@@ -140,8 +141,8 @@ class Controller {
         }
     }
 
-    protected function middleware($middleware, $methods = []){
-        $this->middleware[$middleware] = $methods;
+    protected function middleware($middleware, $type = 'all', $methods = []){
+        $this->middleware[] = new MiddlewareItem($middleware, $methods, $type);
     }
 
     public function getMiddlewares(){
