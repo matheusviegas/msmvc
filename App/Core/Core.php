@@ -57,8 +57,6 @@ class Core {
 
             $this->handleMiddlewares($controllerClass->getMiddlewares(), $currentAction);
 
-           // dd($controllerClass->getMiddlewares());
-
             if (method_exists($controllerClass, $currentAction)) {
                 call_user_func_array(array($controllerClass, $currentAction), $params);
                 return;
