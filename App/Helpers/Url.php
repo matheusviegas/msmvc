@@ -20,7 +20,7 @@ if (!function_exists('redirect')) {
         foreach ($msg as $key => $value) {
             Session::put($key, $value);
         }
-        header('Location: ' . BASE_URL . $destination);
+        header('Location: ' . (preg_match('/http(s?)\:\/\//i', $destination) ? $destination : BASE_URL . $destination));
         exit;
     }
 

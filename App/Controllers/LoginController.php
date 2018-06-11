@@ -23,12 +23,12 @@ class LoginController extends Controller {
             $user = Auth::authenticate($data['email'], $data['password']);
 
             if ($user != null) {
-                $this->redirect(Config::get('redirect_after_login'));
+                redirect(Config::get('redirect_after_login'));
             } else {
-                $this->redirect('login', ['flash' => ['error' => 'Usuário ou senha inválidos.']]);
+                redirect('login', ['flash' => ['error' => 'Usuário ou senha inválidos.']]);
             }
         } else {
-            $this->redirect('login', ['flash' => ['error' => 'Preencha o email e a senha.']]);
+            redirect('login', ['flash' => ['error' => 'Preencha o email e a senha.']]);
         }
     }
 

@@ -57,15 +57,15 @@ class RolesController extends Controller {
         $role->description = $data['description'];
         $role->save();
 
-        $this->redirect('roles', ['flash' => ['success' => 'Alterações salvas com sucesso!']]);
+        redirect('roles', ['flash' => ['success' => 'Alterações salvas com sucesso!']]);
     }
 
     public function delete($id) {
         $this->requirePermission('roles_delete', 'home', 'Voce não tem permissão para remover roles.');
         if (Role::destroy($id)) {
-            $this->redirect('roles', ['flash' => ['success' => 'Deletado com sucesso.']]);
+            redirect('roles', ['flash' => ['success' => 'Deletado com sucesso.']]);
         } else {
-            $this->redirect('roles', ['flash' => ['danger' => 'Erro ao excluir.']]);
+            redirect('roles', ['flash' => ['danger' => 'Erro ao excluir.']]);
         }
     }
 

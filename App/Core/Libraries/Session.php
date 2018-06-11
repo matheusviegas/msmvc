@@ -47,7 +47,7 @@ class Session {
             } else {
                 $_SESSION[$key] = $value;
                 if (!empty($redirect)) {
-                    $this->redirect($redirect);
+                    redirect($redirect);
                 }
             }
         }

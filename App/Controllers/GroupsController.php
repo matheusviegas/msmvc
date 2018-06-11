@@ -73,7 +73,7 @@ class GroupsController extends Controller {
             $group->roles()->detach();
         }
 
-        $this->redirect('groups', ['flash' => ['success' => 'Alterações salvas com sucesso!']]);
+        redirect('groups', ['flash' => ['success' => 'Alterações salvas com sucesso!']]);
     }
 
     public function delete($id) {
@@ -81,9 +81,9 @@ class GroupsController extends Controller {
         $group = Group::find($id);
         $group->roles()->detach();
         if ($group->delete()) {
-            $this->redirect('groups', ['flash' => ['success' => 'Deletado com sucesso.']]);
+            redirect('groups', ['flash' => ['success' => 'Deletado com sucesso.']]);
         } else {
-            $this->redirect('groups', ['flash' => ['danger' => 'Erro ao excluir.']]);
+            redirect('groups', ['flash' => ['danger' => 'Erro ao excluir.']]);
         }
     }
 

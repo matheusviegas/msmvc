@@ -98,15 +98,15 @@ class UsersController extends Controller {
         }
         $user->save();
 
-        $this->redirect('users', ['flash' => $flashMSG]);
+        redirect('users', ['flash' => $flashMSG]);
     }
 
     public function delete($id) {
         $this->requirePermission('users_delete', 'users', 'Voce não tem permissão para remover usuarios.');
         if (User::destroy($id)) {
-            $this->redirect('users', ['status' => 'success', 'mensagem' => 'Deletado com sucesso.']);
+            redirect('users', ['status' => 'success', 'mensagem' => 'Deletado com sucesso.']);
         } else {
-            $this->redirect('users', ['status' => 'danger', 'mensagem' => 'Erro ao excluir.']);
+            redirect('users', ['status' => 'danger', 'mensagem' => 'Erro ao excluir.']);
         }
     }
 

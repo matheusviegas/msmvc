@@ -177,7 +177,7 @@ class SetupController extends Controller {
 
             $group->roles()->attach(Role::all()->pluck('id')->toArray());
 
-            $this->redirect('setup/setup/3');
+            redirect('setup/setup/3');
         } else {
             echo "concluido";
         }

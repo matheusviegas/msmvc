@@ -21,7 +21,7 @@ class Controller {
 
         if ($role != null && $role != 'public') {
             if (!Auth::hasPermission($role)) {
-                $this->redirect(Config::get('redirect_after_logout'));
+                redirect(Config::get('redirect_after_logout'));
             }
         }
     }
@@ -41,22 +41,6 @@ class Controller {
         include 'App/Views/' . $viewName . '.php';
     }
 
-    public function redirect($destination, $msg = array()) {
-        foreach ($msg as $key => $value) {
-            Session::put($key, $value);
-        }
-        header('Location: ' . BASE_URL . $destination);
-        exit;
-    }
-
-    public function base($destination, $return = FALSE) {
-        if ($return) {
-            return BASE_URL . $destination;
-        } else {
-            echo BASE_URL . $destination;
-        }
-    }
-
     public function acceptWithPermission($method, $role, $redirect = null, $message = null) {
         $this->accept($method);
         $this->requirePermission($role, $redirect, $message);
@@ -64,7 +48,7 @@ class Controller {
 
     public function accept($method) {
         if (in_array($method, Config::get('accepted_methods')) && $_SERVER['REQUEST_METHOD'] != $method) {
-            $this->redirect(Config::get('redirect_if_invalid_request_method'), ['flash' => ['error' => $this->lang->get('ROUTE_METHOD_UNACCEPTED', TRUE) . ' ' . $method . '.']]);
+            redirect(Config::get('redirect_if_invalid_request_method'), ['flash' => ['error' => $this->lang->get('ROUTE_METHOD_UNACCEPTED', TRUE) . ' ' . $method . '.']]);
             exit;
         }
     }
@@ -74,7 +58,7 @@ class Controller {
         $message = ($message == null ? $this->lang->get('INSUFICIENT_PERMISSION', TRUE) : $message);
 
         if ($role != null && !Auth::hasPermission($role)) {
-            $this->redirect($redirect, ['flash' => ['error' => $message]]);
+            redirect($redirect, ['flash' => ['error' => $message]]);
             exit;
         }
     }
@@ -134,10 +118,10 @@ class Controller {
     public function verifyCSRFToken() {
         if (Input::has('csrf_token') && Input::has('form_name')) {
             if (Input::post('csrf_token') !== $this->generateToken(Input::post('form_name'), true)) {
-                $this->redirect('login', ['flash' => ['error' => $this->lang->get('csrf_invalid_token', TRUE)]]);
+                redirect('login', ['flash' => ['error' => $this->lang->get('csrf_invalid_token', TRUE)]]);
             }
         } else {
-            $this->redirect('login', ['flash' => ['error' => $this->lang->get('csrf_validation_failed', TRUE)]]);
+            redirect('login', ['flash' => ['error' => $this->lang->get('csrf_validation_failed', TRUE)]]);
         }
     }
 
