@@ -9,21 +9,19 @@ class Email extends PHPMailer {
     public function __construct($exceptions = NULL) {
         parent::__construct($exceptions);
 
-        global $config;
+        $this->SMTPDebug = env('MAIL_DEBUG', 3);
 
-        $this->SMTPDebug = $config['mail_debug'];
-
-        if ($config['mail_smtp']) {
+        if (env('MAIL_SMTP', FALSE)) {
             $this->isSMTP();
-            $this->SMTPAuth = $config['mail_smtp_auth'];
-            $this->Host = $config['mail_smtp_host'];
-            $this->Username = $config['mail_smtp_user'];
-            $this->Password = $config['mail_smtp_pass'];
-            $this->Port = $config['mail_smtp_port'];
-            $this->SMTPSecure = $config['mail_smtp_secure'];
+            $this->SMTPAuth = env('MAIL_STMP_AUTH');
+            $this->Host = env('MAIL_SMTP_HOST');
+            $this->Username = env('MAIL_SMTP_USER');
+            $this->Password = env('MAIL_SMTP_PASS');
+            $this->Port = env('MAIL_SMTP_PORT');
+            $this->SMTPSecure = env('MAIL_SMTP_SECURE', 'ssl');
         }
 
-        if ($config['mail_smtp_type'] == 'html') {
+        if (env('MAIL_SMTP_TYPE', 'html') == 'html') {
             $this->isHTML(true);
         }
     }
