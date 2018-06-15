@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6">
-        <form method="POST" action="<?= $this->base('roles/save'); ?>">
+        <form method="POST" action="<?= base('roles/save', TRUE); ?>">
             <?php if (!empty($role)) : ?>
                 <input type="hidden" name="id" value="<?= $role->id; ?>" />
             <?php endif; ?>
@@ -20,7 +20,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <input type="submit" name="salvar" value="Salvar Alterações" class="btn btn-primary" /> <a href="<?= $this->base('roles'); ?>" class="btn btn-default">Voltar</a>
+                    <input type="submit" name="salvar" value="Salvar Alterações" class="btn btn-primary" /> <a href="<?= base('roles', TRUE); ?>" class="btn btn-default">Voltar</a>
                 </div>
             </div>
 

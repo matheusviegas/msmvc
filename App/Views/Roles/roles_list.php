@@ -15,8 +15,8 @@
                 <td><?= $role->role; ?></td>
                 <td><?= $role->description; ?></td>
                 <td>
-                    <a href="<?= $this->base('roles/edit/' . $role->id); ?>" class="btn btn-default btn-xs"><i class="lnr lnr-pencil"></i></a>
-                    <a href="<?= $this->base('roles/delete/' . $role->id); ?>" class="btn btn-danger btn-xs" onclick="return confirm('Tem certeza que deseja excluir este item?')"><i class="lnr lnr-trash"></i></a>
+                    <a href="<?= base('roles/edit/' . $role->id, TRUE); ?>" class="btn btn-default btn-xs"><i class="lnr lnr-pencil"></i></a>
+                    <a href="<?= base('roles/delete/' . $role->id, TRUE); ?>" class="btn btn-danger btn-xs" onclick="return confirm('Tem certeza que deseja excluir este item?')"><i class="lnr lnr-trash"></i></a>
                 </td>
             </tr>
         <?php endforeach; ?>

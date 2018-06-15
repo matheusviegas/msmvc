@@ -24,7 +24,7 @@ class HomeController extends Controller {
     }
 
     public function test() {
-        echo "<form name='csrf_form' method='POST' action='" . $this->base('home/teste', TRUE) . "'>";
+        echo "<form name='csrf_form' method='POST' action='" . base('home/teste', TRUE) . "'>";
         $this->csrf_field('csrf_form');
         echo "<input type='text' name='cidade' value='Pelotas' /><input type='submit' value='OK' /></form>";
     }

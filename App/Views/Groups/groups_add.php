@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6">
-        <form method="POST" action="<?= $this->base('groups/save'); ?>">
+        <form method="POST" action="<?= base('groups/save', TRUE); ?>">
             <?php if (!empty($group)) : ?>
                 <input type="hidden" name="id" value="<?= $group->id; ?>" />
             <?php endif; ?>
@@ -35,7 +35,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <input type="submit" name="salvar" value="Salvar Alterações" class="btn btn-primary" /> <a href="<?= $this->base('groups'); ?>" class="btn btn-default">Voltar</a>
+                    <input type="submit" name="salvar" value="Salvar Alterações" class="btn btn-primary" /> <a href="<?= base('groups', TRUE); ?>" class="btn btn-default">Voltar</a>
                 </div>
             </div>
 

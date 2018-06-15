@@ -25,6 +25,6 @@
             </tbody>
         </table>
 
-        <a href="<?= $this->base('users'); ?>" class="btn btn-default">Voltar</a>
+        <a href="<?= base('users', TRUE); ?>" class="btn btn-default">Voltar</a>
     </div>
 </div>

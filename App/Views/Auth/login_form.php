@@ -33,7 +33,7 @@
                                     <div class="logo text-center"><img src="<?= BASE_URL; ?>assets/img/logo-dark.png" alt="Klorofil Logo"></div>
                                     <p class="lead"><?= $this->lang->get('title_login_form'); ?></p>
                                 </div>
-                                <form class="form-auth-small" method="POST" action="<?= $this->base('login/authenticate', TRUE); ?>" autocomplete="off">
+                                <form class="form-auth-small" method="POST" action="<?= base('login/authenticate', TRUE); ?>" autocomplete="off">
                                     <?php $this->csrf_field('login_form'); ?>
                                     <div class="form-group">
                                         <label for="signin-email" class="control-label sr-only"><?= $this->lang->get('label_email'); ?></label>

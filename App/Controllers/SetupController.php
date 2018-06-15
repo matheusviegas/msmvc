@@ -12,7 +12,7 @@ class SetupController extends Controller {
     }
 
     public function index() {
-        echo "<a href='" . $this->base('setup/setup/1', TRUE) . "'>SETUP DATABASE</a>";
+        echo "<a href='" . base('setup/setup/1', TRUE) . "'>SETUP DATABASE</a>";
     }
 
     public function setup($step) {
@@ -71,7 +71,7 @@ class SetupController extends Controller {
                 ";
 
                 $db->exec($sql);
-                echo "Tabelas criadas! <a href='" . $this->base('setup/setup/2', TRUE) . "'>Popular base de dados</a>";
+                echo "Tabelas criadas! <a href='" . base('setup/setup/2', TRUE) . "'>Popular base de dados</a>";
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }

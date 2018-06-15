@@ -19,6 +19,6 @@
             </tbody>
         </table>
 
-        <a href="<?= $this->base('groups'); ?>" class="btn btn-default">Voltar</a>
+        <a href="<?= base('groups', TRUE); ?>" class="btn btn-default">Voltar</a>
     </div>
 </div>

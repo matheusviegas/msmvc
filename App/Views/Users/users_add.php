@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6">
-        <form method="POST" action="<?= $this->base('users/save'); ?>" enctype="multipart/form-data">
+        <form method="POST" action="<?= base('users/save', TRUE); ?>" enctype="multipart/form-data">
             <?php if (!empty($user)) : ?>
                 <input type="hidden" name="id" value="<?= $user->id; ?>" />
             <?php endif; ?>
@@ -55,7 +55,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <input type="submit" name="salvar" value="Salvar Alterações" class="btn btn-primary" /> <a href="<?= $this->base('users'); ?>" class="btn btn-default">Voltar</a>
+                    <input type="submit" name="salvar" value="Salvar Alterações" class="btn btn-primary" /> <a href="<?= base('users', TRUE); ?>" class="btn btn-default">Voltar</a>
                 </div>
             </div>
 
