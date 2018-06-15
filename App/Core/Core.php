@@ -11,7 +11,7 @@ class Core {
 
         foreach (Config::get('autoload') as $key => $val) {
             foreach ($val as $helper) {
-                require "App/" . ucfirst($key) . "/" . $helper . ".php";
+                require "App/" . ucfirst($key) . "/" . ucfirst($helper) . ".php";
             }
         }
     }
