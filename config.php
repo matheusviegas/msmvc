@@ -78,5 +78,5 @@ $config['whitelist_extensions'] = ['png', 'jpg', 'jpeg', 'gif', 'zip', 'tar.gz',
 
 // Autoload helpers
 $config['autoload'] = [
-    'helpers' => ['url', 'format']
+    'helpers' => ['url', 'format', 'csrf']
 ];

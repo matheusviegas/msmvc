@@ -9,6 +9,8 @@ class HomeController extends Controller {
     public function __construct() {
         parent::__construct();
         $this->middleware('auth');
+
+        $this->middleware('csrf', 'methods', ['teste']);
     }
 
     public function index() {
@@ -25,15 +27,12 @@ class HomeController extends Controller {
 
     public function test() {
         echo "<form name='csrf_form' method='POST' action='" . base('home/teste', TRUE) . "'>";
-        $this->csrf_field('csrf_form');
+        csrf_field();
         echo "<input type='text' name='cidade' value='Pelotas' /><input type='submit' value='OK' /></form>";
     }
 
     public function teste() {
-        echo "<pre>";
-        var_dump($_POST);
-        echo "<br /><br />";
-        var_dump($this->verifyCSRFToken());
+       echo "chegou!";
     }
 
 }

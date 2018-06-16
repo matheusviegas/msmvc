@@ -9,6 +9,8 @@ class LoginController extends Controller {
 
     public function __construct() {
         parent::__construct();
+
+        $this->middleware('csrf', 'methods', ['authenticate']);
     }
 
     public function index() {
@@ -16,7 +18,6 @@ class LoginController extends Controller {
     }
 
     public function authenticate() {
-        $this->verifyCSRFToken();
         $data = Input::post();
 
         if (Input::validate($data, 'required')) {
