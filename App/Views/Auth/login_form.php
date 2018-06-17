@@ -34,7 +34,7 @@
                                     <p class="lead"><?= $this->lang->get('title_login_form'); ?></p>
                                 </div>
                                 <form class="form-auth-small" method="POST" action="<?= base('login/authenticate', TRUE); ?>" autocomplete="off">
-                                    <?php $this->csrf_field('login_form'); ?>
+                                    <?php csrf_field(); ?>
                                     <div class="form-group">
                                         <label for="signin-email" class="control-label sr-only"><?= $this->lang->get('label_email'); ?></label>
                                         <input type="email" class="form-control" id="signin-email" value="" name="email" placeholder="<?= $this->lang->get('label_email'); ?>" required />

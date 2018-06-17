@@ -102,29 +102,6 @@ class Controller {
         return $this->additionalCSS;
     }
 
-    // CSRF PROTECTION
-    public function generateToken($formName, $validate = false) {
-        if (!$validate) {
-            $formName = md5($formName);
-        }
-        return sha1($formName . Session::getSessionID() . env('APP_KEY'));
-    }
-
-    public function csrf_field($formName) {
-        echo "<input type='hidden' name='form_name' value='" . md5($formName) . "' />";
-        echo "<input type='hidden' name='csrf_token' value='" . $this->generateToken($formName) . "' />";
-    }
-
-    public function verifyCSRFToken() {
-        if (Input::has('csrf_token') && Input::has('form_name')) {
-            if (Input::post('csrf_token') !== $this->generateToken(Input::post('form_name'), true)) {
-                redirect('login', ['flash' => ['error' => $this->lang->get('csrf_invalid_token', TRUE)]]);
-            }
-        } else {
-            redirect('login', ['flash' => ['error' => $this->lang->get('csrf_validation_failed', TRUE)]]);
-        }
-    }
-
     protected function middleware($middleware, $type = 'all', $methods = []){
         $this->middleware[] = new MiddlewareItem($middleware, $methods, $type);
     }

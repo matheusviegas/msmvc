@@ -17,7 +17,8 @@
         "phpmailer/phpmailer": "~6.0",
         "illuminate/database": "^5.5",
         "mpdf/mpdf": "^7.1",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "msouza/msmvc-console": "dev-master"
     },
     "autoload": {
         "psr-4": {
