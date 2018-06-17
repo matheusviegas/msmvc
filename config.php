@@ -23,32 +23,32 @@ $config['menu_items'] = [
     'home' => [
         'link' => 'home',
         'icon' => 'home',
-        'title' => 'Painel'
+        'lang_ref' => 'home'
     ],
     'users' => [
         'link' => 'users',
         'icon' => 'user',
-        'title' => 'Usuários'
+        'lang_ref' => 'users'
     ],
     'groups' => [
         'link' => 'groups',
         'icon' => 'users',
-        'title' => 'Grupos'
+        'lang_ref' => 'groups'
     ],
     'roles' => [
         'link' => 'roles',
         'icon' => 'lock',
-        'title' => 'Roles'
+        'lang_ref' => 'roles'
     ],
     'settings' => [
         'link' => 'settings',
         'icon' => 'cog',
-        'title' => 'Configurações'
+        'lang_ref' => 'settings'
     ],
     'exit' => [
         'link' => 'logout',
         'icon' => 'exit',
-        'title' => 'Sair'
+        'lang_ref' => 'logout'
     ]
 ];
 

@@ -55,7 +55,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <input type="submit" name="salvar" value="Salvar Alterações" class="btn btn-primary" /> <a href="<?= base('users', TRUE); ?>" class="btn btn-default">Voltar</a>
+                    <input type="submit" name="salvar" value="<?=$this->lang->get('btn_save', true);?>" class="btn btn-primary" /> <a href="<?= base('users', TRUE); ?>" class="btn btn-default"><?=$this->lang->get('btn_back', true);?></a>
                 </div>
             </div>
 

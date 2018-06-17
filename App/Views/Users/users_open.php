@@ -25,6 +25,6 @@
             </tbody>
         </table>
 
-        <a href="<?= base('users', TRUE); ?>" class="btn btn-default">Voltar</a>
+        <a href="<?= base('users', TRUE); ?>" class="btn btn-default"><?=$this->lang->get('btn_back', true);?></a>
     </div>
 </div>

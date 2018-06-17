@@ -16,9 +16,9 @@ class UsersController extends Controller {
     public function index() {
         $this->requirePermission('users_list', 'home', 'Você não tem permissão para acessar a lista de usuários.');
         $configTemplate = [
-            'title' => 'Usuários',
-            'panel_title' => 'Listagem de Usuários',
-            'txt_btn' => 'Cadastrar Usuário',
+            'title' => $this->lang->get('title_page_users', true),
+            'panel_title' => $this->lang->get('users_list', true),
+            'txt_btn' => $this->lang->get('btn_add_user', true),
             'action_btn' => 'users/add',
             'active_menu_item' => 'users'
         ];
@@ -29,8 +29,8 @@ class UsersController extends Controller {
     public function add() {
         $this->requirePermission('users_add', 'users', 'Voce não tem permissão para criar usuarios.');
         $configTemplate = [
-            'title' => 'Usuários',
-            'panel_title' => 'Cadastrar Usuário',
+            'title' => $this->lang->get('title_page_users', true),
+            'panel_title' => $this->lang->get('btn_add_user', true),
             'active_menu_item' => 'users'
         ];
 
@@ -40,8 +40,8 @@ class UsersController extends Controller {
     public function edit($id) {
         $this->requirePermission('users_edit', 'users', 'Voce não tem permissão para alterar usuarios.');
         $configTemplate = [
-            'title' => 'Usuários',
-            'panel_title' => 'Editar Usuário',
+            'title' => $this->lang->get('title_page_users', true),
+            'panel_title' => $this->lang->get('user_edit', true),
             'active_menu_item' => 'users'
         ];
 
@@ -51,8 +51,8 @@ class UsersController extends Controller {
     public function open($id) {
         $this->requirePermission('users_open', 'users', 'Voce não tem permissão para visualizar os detalhes dos usuarios.');
         $configTemplate = [
-            'title' => 'Usuários',
-            'panel_title' => 'Detalhes do Usuário',
+            'title' => $this->lang->get('title_page_users', true),
+            'panel_title' => $this->lang->get('user_detail', true),
             'active_menu_item' => 'users'
         ];
 

@@ -19,7 +19,33 @@ return [
     'upload_success' => 'Upload successful.',
     'upload_error' => 'Upload failed.',
     // FORMS MESSAGES
-    'update_sucessful' => 'Successful changes.'
+    'update_sucessful' => 'Successful changes.',
+    // MENU_DROPDOWN_ADMIN
+    'profile' => 'Profile',
+    'settings' => 'Settings',
+    'logout' => 'Logout',
+    'users' => 'Users',
+    'home' => 'Home',
+    'groups' => 'Groups',
+    'roles' => 'Roles',
+    // USERS FORMS
+    'btn_add_user' => 'New User',
+    'users_list' => 'Users List',
+    'title_page_users' => 'Users',
+    'user_edit' => 'Edit User',
+    'user_detail' => 'User Details',
+    'btn_save' => 'Save',
+    'btn_back' => 'Go Back',
+    'delete_confirmation' => 'Are you sure you want to delete this item?',
+
+    // USERS TABLE LABELS
+    'lbl_name' => 'Name',
+    'lbl_lastname' => 'Last Name',
+    'lbl_email' => 'Email',
+    'lbl_actions' => 'Actions',
+    'tooltip_details' => 'View more details of this user',
+    'tooltip_edit_user' => 'Edit this user',
+    'tooltip_delete_user' => 'Delete this user'
 ];
 
 

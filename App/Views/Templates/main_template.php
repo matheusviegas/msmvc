@@ -75,9 +75,9 @@
 
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= ($loggedUser->picture != null ? BASE_URL . 'uploads/profile_pictures/' . $loggedUser->picture : BASE_URL . 'assets/img/no_picture.png'); ?>" class="img-circle" alt="Avatar"> <span><?= $loggedUser->name; ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?= base('profile', TRUE); ?>"><i class="lnr lnr-user"></i> <span>Perfil</span></a></li>
-                                    <li><a href="<?= base('settings', TRUE); ?>"><i class="lnr lnr-cog"></i> <span>Configurações</span></a></li>
-                                    <li><a href="<?= base('logout', TRUE); ?>"><i class="lnr lnr-exit"></i> <span>Sair</span></a></li>
+                                    <li><a href="<?= base('profile', TRUE); ?>"><i class="lnr lnr-user"></i> <span><?=$this->lang->get('profile');?></span></a></li>
+                                    <li><a href="<?= base('settings', TRUE); ?>"><i class="lnr lnr-cog"></i> <span><?=$this->lang->get('settings');?></span></a></li>
+                                    <li><a href="<?= base('logout', TRUE); ?>"><i class="lnr lnr-exit"></i> <span><?=$this->lang->get('logout');?></span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -92,7 +92,7 @@
                         <ul class="nav">
 
                             <?php foreach (\App\Core\Config::get('menu_items') as $key => $val): ?>
-                                <li><a href="<?= base($val['link'], TRUE); ?>" class="<?= !empty($active_menu_item) && $active_menu_item == $key ? 'active' : ''; ?>"><i class="lnr lnr-<?= $val['icon']; ?>"></i> <span><?= $val['title']; ?></span></a></li>
+                                <li><a href="<?= base($val['link'], TRUE); ?>" class="<?= !empty($active_menu_item) && $active_menu_item == $key ? 'active' : ''; ?>"><i class="lnr lnr-<?= $val['icon']; ?>"></i> <span><?= $this->lang->get($val['lang_ref']); ?></span></a></li>
                             <?php endforeach; ?>
 
 
