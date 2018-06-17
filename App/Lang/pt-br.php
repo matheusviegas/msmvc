@@ -43,8 +43,20 @@ return [
     'lbl_lastname' => 'Sobrenome',
     'lbl_email' => 'Email',
     'lbl_actions' => 'Ações',
+    'lbl_username' => 'Nome de Usuário',
+    'lbl_select_group' => 'Selecionar Grupo',
+    'lbl_password' => 'Senha',
+    'lbl_password_confirmation' => 'Repita a senha',
+    'lbl_group' => 'Grupo',
     'tooltip_details' => 'Ver mais detalhes deste usuário',
     'tooltip_edit_user' => 'Editar este usuário',
-    'tooltip_delete_user' => 'Deletar este usuário'
+    'tooltip_delete_user' => 'Deletar este usuário',
 
+    // Groups FORMS
+    'lbl_roles' => 'Permissões',
+    'btn_add_group' => 'Cadastrar Grupo',
+    'groups_list' => 'Listagem de Grupos',
+    'title_page_groups' => 'Grupos',
+    'group_edit' => 'Editar Grupo',
+    'group_detail' => 'Detalhes do Grupo'
 ];

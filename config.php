@@ -13,7 +13,7 @@ if (env('ENVIRONMENT') == 'development') {
     error_reporting(E_ALL);
 }
 
-$config['default_lang'] = 'en';
+$config['default_lang'] = 'pt-br';
 $config['default_controller'] = 'home';
 $config['default_template'] = 'main_template';
 

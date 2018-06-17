@@ -7,7 +7,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="Nome" name="name" required value="<?= (!empty($group) ? $group->name : ''); ?>" />
+                    <input type="text" class="form-control" placeholder="<?=$this->lang->get('lbl_name', TRUE);?>" name="name" required value="<?= (!empty($group) ? $group->name : ''); ?>" />
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <input type="submit" name="salvar" value="Salvar Alterações" class="btn btn-primary" /> <a href="<?= base('groups', TRUE); ?>" class="btn btn-default">Voltar</a>
+                    <input type="submit" name="salvar" value="<?=$this->lang->get('btn_save', TRUE);?>" class="btn btn-primary" /> <a href="<?= base('groups', TRUE); ?>" class="btn btn-default"><?=$this->lang->get('btn_back', TRUE);?></a>
                 </div>
             </div>
 

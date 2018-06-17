@@ -3,11 +3,11 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <th>Nome</th>
+                    <th><?=$this->lang->get('lbl_name', TRUE);?></th>
                     <td><?= $group->name; ?></td>
                 </tr>
                 <tr>
-                    <th>Roles</th>
+                    <th><?=$this->lang->get('lbl_roles', TRUE);?></th>
                     <td>
                         <ul>
                             <?php foreach ($group->roles as $role): ?>
@@ -19,6 +19,6 @@
             </tbody>
         </table>
 
-        <a href="<?= base('groups', TRUE); ?>" class="btn btn-default">Voltar</a>
+        <a href="<?= base('groups', TRUE); ?>" class="btn btn-default"><?=$this->lang->get('btn_back', TRUE);?></a>
     </div>
 </div>

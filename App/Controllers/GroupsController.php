@@ -16,9 +16,9 @@ class GroupsController extends Controller {
     public function index() {
         $this->requirePermission('groups_list', 'home', 'Voce não tem permissão para visualizar os grupos.');
         $configTemplate = [
-            'title' => 'Grupos',
-            'panel_title' => 'Listagem de Grupos',
-            'txt_btn' => 'Adicionar Grupo',
+            'title' => $this->lang->get('title_page_groups', true),
+            'panel_title' => $this->lang->get('groups_list', true),
+            'txt_btn' => $this->lang->get('btn_add_group', true),
             'action_btn' => 'groups/add',
             'active_menu_item' => 'groups'
         ];
@@ -29,8 +29,8 @@ class GroupsController extends Controller {
     public function add() {
         $this->requirePermission('groups_add', 'home', 'Voce não tem permissão para criar grupos.');
         $configTemplate = [
-            'title' => 'Grupos',
-            'panel_title' => 'Adicionar Grupo',
+            'title' => $this->lang->get('title_page_groups', true),
+            'panel_title' => $this->lang->get('btn_add_group', true),
             'active_menu_item' => 'groups'
         ];
 
@@ -40,8 +40,8 @@ class GroupsController extends Controller {
     public function edit($id) {
         $this->requirePermission('groups_edit', 'home', 'Voce não tem permissão para alterar grupos.');
         $configTemplate = [
-            'title' => 'Grupos',
-            'panel_title' => 'Editar Grupo',
+            'title' => $this->lang->get('title_page_groups', true),
+            'panel_title' => $this->lang->get('group_edit', true),
             'active_menu_item' => 'groups'
         ];
 
@@ -51,8 +51,8 @@ class GroupsController extends Controller {
     public function open($id) {
         $this->requirePermission('groups_open', 'home', 'Voce não tem permissão para visualizar os detalhes dos grupos.');
         $configTemplate = [
-            'title' => 'Grupos',
-            'panel_title' => 'Detalhes do Grupo',
+            'title' => $this->lang->get('title_page_groups', true),
+            'panel_title' => $this->lang->get('group_detail', true),
             'active_menu_item' => 'groups'
         ];
 
@@ -73,7 +73,7 @@ class GroupsController extends Controller {
             $group->roles()->detach();
         }
 
-        redirect('groups', ['flash' => ['success' => 'Alterações salvas com sucesso!']]);
+        redirect('groups', ['flash' => ['success' => $this->lang->get('update_sucessful', TRUE)]]);
     }
 
     public function delete($id) {

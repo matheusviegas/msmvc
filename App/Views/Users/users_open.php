@@ -3,23 +3,23 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <th>Nome</th>
+                    <th><?=$this->lang->get('lbl_name', TRUE);?></th>
                     <td><?= $user->name; ?></td>
                 </tr>
                 <tr>
-                    <th>Sobrenome</th>
+                    <th><?=$this->lang->get('lbl_lastname', TRUE);?></th>
                     <td><?= $user->lastname; ?></td>
                 </tr>
                 <tr>
-                    <th>Email</th>
+                    <th><?=$this->lang->get('lbl_email', TRUE);?></th>
                     <td><?= $user->email; ?></td>
                 </tr>
                 <tr>
-                    <th>Nome de Usuário</th>
+                    <th><?=$this->lang->get('lbl_username', TRUE);?></th>
                     <td><?= $user->username; ?></td>
                 </tr>
                 <tr>
-                    <th>Grupo</th>
+                    <th><?=$this->lang->get('lbl_group', TRUE);?></th>
                     <td><?= $user->group->name; ?></td>						
                 </tr>
             </tbody>
