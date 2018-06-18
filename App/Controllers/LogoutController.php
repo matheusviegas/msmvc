@@ -12,7 +12,7 @@ class LogoutController extends Controller {
 
     public function index() {
         Auth::logout();
-        redirect(Config::get('redirect_after_logout'));
+        redirect(Config::get('redirect_after_logout'))->go();
     }
 
 }

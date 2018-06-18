@@ -8,7 +8,7 @@ class AuthMiddleware implements Middleware {
 	
 	public function handle(){
 		if (Auth::user() == null) {
-            redirect('login', ['flash' => ['error' => 'Área restrita a usuários logados.']]);
+            redirect('login')->with('error', 'Área restrita a usuários logados.')->go();
         }
 	}
 

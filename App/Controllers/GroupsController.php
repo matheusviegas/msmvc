@@ -73,7 +73,7 @@ class GroupsController extends Controller {
             $group->roles()->detach();
         }
 
-        redirect('groups', ['flash' => ['success' => $this->lang->get('update_sucessful', TRUE)]]);
+        redirect('groups')->with('success', $this->lang->get('update_sucessful', TRUE))->go();
     }
 
     public function delete($id) {
@@ -81,9 +81,9 @@ class GroupsController extends Controller {
         $group = Group::find($id);
         $group->roles()->detach();
         if ($group->delete()) {
-            redirect('groups', ['flash' => ['success' => 'Deletado com sucesso.']]);
+            redirect('groups')->with('success', 'Deletado com sucesso.')->go();
         } else {
-            redirect('groups', ['flash' => ['danger' => 'Erro ao excluir.']]);
+            redirect('groups')->with('danger', 'Erro ao excluir.')->go();
         }
     }
 

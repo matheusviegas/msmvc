@@ -1,6 +1,7 @@
 <?php
 
 use App\Core\Libraries\Session;
+use App\Core\Http\Redirect;
 
 if (!function_exists('base')) {
 
@@ -14,14 +15,11 @@ if (!function_exists('base')) {
 
 }
 
+
 if (!function_exists('redirect')) {
 
-    function redirect($destination, $msg = array()) {
-        foreach ($msg as $key => $value) {
-            Session::put($key, $value);
-        }
-        header('Location: ' . (preg_match('/http(s?)\:\/\//i', $destination) ? $destination : BASE_URL . $destination));
-        exit;
+    function redirect($destination = null) {
+        return new Redirect($destination);
     }
 
 }

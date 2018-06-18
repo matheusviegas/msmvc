@@ -17,7 +17,7 @@ class LangController extends Controller {
 
     public function set($lang) {
         Session::put('lang', $lang);
-        redirect(Config::get('default_controller'));
+        redirect(Config::get('default_controller'))->go();
     }
 
 }

@@ -13,6 +13,8 @@ if (env('ENVIRONMENT') == 'development') {
     error_reporting(E_ALL);
 }
 
+$config['magicRouting'] = TRUE;
+
 $config['default_lang'] = 'pt-br';
 $config['default_controller'] = 'home';
 $config['default_template'] = 'main_template';
@@ -78,5 +80,5 @@ $config['whitelist_extensions'] = ['png', 'jpg', 'jpeg', 'gif', 'zip', 'tar.gz',
 
 // Autoload helpers
 $config['autoload'] = [
-    'helpers' => ['url', 'format', 'csrf']
+    'helpers' => ['url', 'format', 'csrf', 'response']
 ];

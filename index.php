@@ -1,7 +1,9 @@
 <?php
 
-use App\Core\{Database, Core};
+use App\Core\{Database, Core, Router, Config};
 use App\Core\Libraries\Session;
+
+define("APP_PATH", __DIR__);
 
 require 'vendor/autoload.php';
 
@@ -13,9 +15,24 @@ $dotenv->required('ENVIRONMENT')->allowedValues(['development', 'production']);
 $dotenv->required('DB_PASSWORD');
 
 require 'config.php';
-require 'routes.php';
-
 Session::open();
-
 (new Database())->init();
-(new Core())->run();
+
+date_default_timezone_set(env('APP_TIMEZONE'));
+
+foreach (Config::get('autoload') as $key => $val) {
+    foreach ($val as $helper) {
+        require "App/" . ucfirst($key) . "/" . ucfirst($helper) . ".php";
+    }
+}
+
+$router = new Router();
+$router->setNamespace('\App\Controllers');
+$router->set404('ErrorController@index');
+
+$router->before('GET|POST', '/api/.*', function() {
+    (new \App\Middlewares\AuthWSMiddleware())->handle();
+});
+
+$router->setRoutesFolder('/App/Routes/', $router);
+$router->run();

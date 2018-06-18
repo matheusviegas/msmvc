@@ -25,6 +25,10 @@ class Auth {
         return $user;
     }
 
+    public static function validateToken($token) {
+        return User::where('ws_token', $token)->count() > 0;
+    }
+
     public static function hasPermission($role) {
         return Session::has('authenticated_user_id') && Auth::user()->group->roles->where('role', $role)->count() > 0;
     }
