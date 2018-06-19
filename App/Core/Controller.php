@@ -21,7 +21,7 @@ class Controller {
 
         if ($role != null && $role != 'public') {
             if (!Auth::hasPermission($role)) {
-                redirect(Config::get('redirect_after_logout'))->go();
+                redirect(Config::get('redirect_after_logout'));
             }
         }
     }
@@ -48,7 +48,7 @@ class Controller {
 
     public function accept($method) {
         if (in_array($method, Config::get('accepted_methods')) && $_SERVER['REQUEST_METHOD'] != $method) {
-            redirect(Config::get('redirect_if_invalid_request_method'))->with('error', $this->lang->get('ROUTE_METHOD_UNACCEPTED', TRUE) . ' ' . $method . '.')->go();
+            redirect(Config::get('redirect_if_invalid_request_method'))->with('error', $this->lang->get('ROUTE_METHOD_UNACCEPTED', TRUE) . ' ' . $method . '.');
         }
     }
 
@@ -57,7 +57,7 @@ class Controller {
         $message = ($message == null ? $this->lang->get('INSUFICIENT_PERMISSION', TRUE) : $message);
 
         if ($role != null && !Auth::hasPermission($role)) {
-            redirect($redirect)->with('error', $message)->go();
+            redirect($redirect)->with('error', $message);
         }
     }
 

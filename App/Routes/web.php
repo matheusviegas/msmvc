@@ -32,5 +32,5 @@ $router->group('/roles', function() use ($router) {
 
 
 $router->get('/tst', function(){
-	redirect2('login')->with('success', 'Teste sucesso!')->with('success', 'outro sucesso')->with('error', 'Errosa')->go();
+	redirect('login')->error('Errrrrrrrrrrou');
 });

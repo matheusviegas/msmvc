@@ -9,7 +9,7 @@ class CsrfMiddleware implements Middleware {
 	
 	public function handle(){
 		if(!validateCSRFToken()){
-			redirect('login')->with('error', 'CSRF validation failed.')->go();			
+			redirect('login')->with('error', 'CSRF validation failed.');			
 		}
 	}
 

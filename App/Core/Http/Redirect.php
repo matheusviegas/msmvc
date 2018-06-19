@@ -7,11 +7,10 @@ class Redirect {
 	private $url;
 	private $allowedFunctions;
 
-	public function __construct($url = null) {
-		if($url != null){
-			$this->url = $this->checkURL($url);
-		}
+	public function __construct($url) {
+		$this->url = $this->checkURL($url);
 		$this->allowedFunctions = ['success', 'error', 'info', 'warning'];
+		header('Location: ' . $this->url);
 	}
 
 	public function with($key, $val = 'Invalid') {
@@ -26,21 +25,15 @@ class Redirect {
 		return $this;
 	}
 
-	public function to($url) {
-		$this->url = $this->checkURL($url);
-		return $this;
-	}
-
-	public function go() {
-		header('Location: ' . $this->url);
-		exit;
-	}
-
 	private function checkURL($url) {
 		return preg_match('/http(s?)\:\/\//i', $url) ? $url : BASE_URL . $url;
 	}
 
 	public function __call($function, $args) {
+		if ($function == 'with') {
+            return $this->with($args[0], $args[1]);
+        }
+
 		if(in_array($function, $this->allowedFunctions)){
 			foreach($args as $msg) {
 				$this->with($function, $msg);
