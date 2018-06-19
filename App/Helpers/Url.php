@@ -18,7 +18,7 @@ if (!function_exists('base')) {
 
 if (!function_exists('redirect')) {
 
-    function redirect($destination = null) {
+    function redirect($destination) {
         return new Redirect($destination);
     }
 
