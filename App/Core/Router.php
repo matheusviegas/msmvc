@@ -270,7 +270,11 @@ class Router {
             }
 
             if (class_exists($controller)) {
-                if (call_user_func_array(array(new $controller(), $method), $params) === false) {
+                $controllerClass = new $controller();
+
+                $this->handleMiddlewares($controllerClass->getMiddlewares(), $method);
+
+                if (call_user_func_array(array($controllerClass, $method), $params) === false) {
                     if (forward_static_call_array(array($controller, $method), $params) === false);
                 }
             }
