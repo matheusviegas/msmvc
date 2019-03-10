@@ -58,5 +58,8 @@ return [
     'groups_list' => 'Listagem de Grupos',
     'title_page_groups' => 'Grupos',
     'group_edit' => 'Editar Grupo',
-    'group_detail' => 'Detalhes do Grupo'
+    'group_detail' => 'Detalhes do Grupo',
+
+    // Template
+    'all_rights_reserved' => 'Todos os direitos reservados'
 ];

@@ -143,7 +143,7 @@
             <div class="clearfix"></div>
             <footer>
                 <div class="container-fluid">
-                    <p class="copyright">&copy; 2018 <a href="#" target="_blank">MS MVC</a>. All Rights Reserved.</p>
+                    <p class="copyright">&copy; 2018 <a href="#" target="_blank">MS MVC</a>. <?php $this->lang->get('all_rights_reserved'); ?>.</p>
                 </div>
             </footer>
         </div>
@@ -159,11 +159,11 @@
         <?php if (\App\Core\Libraries\Session::has('flash')): ?>
             <script type="text/javascript">
                 $(document).ready(function () {
-    <?php foreach (\App\Core\Libraries\Session::flash('flash') as $key => $val): 
-            foreach($val as $msg):
-    ?>
+                    <?php foreach (\App\Core\Libraries\Session::flash('flash') as $key => $val): 
+                        foreach($val as $msg):
+                    ?>
                         toastr['<?= $key; ?>']('<?= $msg; ?>');
-    <?php endforeach; endforeach; ?>
+                    <?php endforeach; endforeach; ?>
                 });
             </script>
         <?php endif; ?>
