@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\{Controller, Auth};
+use App\Models\Parameter;
 
 class HomeController extends Controller {
 
@@ -22,7 +23,7 @@ class HomeController extends Controller {
         // $this->addJS(['datatables', 'toastr', 'sweetalert']);
         //  $this->addCSS(['teste1', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2', 'teste2']);
         //  $this->addJS('https://jquery.com/jquery-wp-content/themes/jquery/js/main.js', true);
-        $this->template('home', ['usuario' => Auth::user()], ['titulo' => 'Inicio', 'active_menu_item' => 'home']);
+        $this->template('home', ['usuario' => Auth::user(), 'param' => Parameter::key('DEFAULT_LANGUAGE')], ['titulo' => 'Inicio', 'active_menu_item' => 'home']);
     }
 
     public function test() {

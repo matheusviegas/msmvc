@@ -43,6 +43,12 @@ class SetupController extends Controller {
                           updated_at timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+                        CREATE TABLE parameters (
+                          id int(11) NOT NULL,
+                          param_key varchar(255) NOT NULL,
+                          param_value varchar(255) NOT NULL
+                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
                         CREATE TABLE users (
                           id int(11) NOT NULL,
                           name varchar(255) NOT NULL,
@@ -59,6 +65,7 @@ class SetupController extends Controller {
                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
                         ALTER TABLE groups ADD PRIMARY KEY (id);
+                        ALTER TABLE parameters ADD PRIMARY KEY (id);
                         ALTER TABLE groups_roles ADD PRIMARY KEY (id), ADD KEY fk_grupos_permissoes_grupos (group_id), ADD KEY fk_grupos_permissoes_permissoes (role_id);
                         ALTER TABLE roles ADD PRIMARY KEY (id);
                         ALTER TABLE users ADD PRIMARY KEY (id), ADD KEY fk_usuarios_grupos (group_id);
